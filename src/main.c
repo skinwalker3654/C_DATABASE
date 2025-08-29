@@ -52,7 +52,7 @@ int main(void) {
                 continue;
             } else {
                 printf("Error: Invalid arguments passed\n");
-                printf("Type: 'help' for more detailes\n\n");
+                printf("Type: 'help' for more details\n\n");
             } 
         } else if(strcmp(command,"select")==0) {
             print_student_list(&students);
@@ -63,7 +63,7 @@ int main(void) {
                 continue;
             } else {
                 printf("\nError: Invalid arguments passed\n");
-                printf("Type: 'help' for more detailes\n\n");
+                printf("Type: 'help' for more details\n\n");
             } 
         } else if(strcmp(input,"help")==0) {
             help_show_commands();
@@ -74,7 +74,7 @@ int main(void) {
             system("clear");
         } else {
             printf("\nError: Invalid command '%s'\n",command);
-            printf("Type: 'help' for more detailes\n\n");
+            printf("Type: 'help' for more details\n\n");
         }
     }
 
