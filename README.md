@@ -6,10 +6,11 @@ It support **CROUD OPARATIONS** (Create, Read, Update, Delete) with saving on a 
 ---
 
 ## Features
-- **Insert** new students (id, όνομα, βαθμός)
+- **Insert** new students (ID, Name, Grade)
 - **Select** all students
 - **Edit** the grade of a student by using id
 - **Delete** students by id
+- Handls ctr+c signal in case you exit before Memory gets freed
 - Auto save changes in `database.txt`
 
 ---
@@ -71,4 +72,5 @@ example:
 ## 📌 Notes
 - Name can have spaces (example. `John Michael Doe`).
 - Max name size: **49 characters**.
+- It uses linked list so you can add as much students as you want
 - if `database.txt` dosent exists than the program creats it 

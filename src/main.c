@@ -1,7 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "database.h"
+#include <signal.h>
 #include <string.h>
+
+Student_list *nodes = NULL;
+void sigint_handler(int sig) {
+    printf("\nDont worry Freeing memory and exiting...\n");
+    free_list_nodes(nodes); 
+    exit(0);
+}
 
 int main(void) {
     char input[100];
@@ -10,8 +18,8 @@ int main(void) {
     float grade;
     int id;
 
-    initialize_list(&students);
-    load_students_from_file(&students);
+    signal(SIGINT, sigint_handler);
+    load_students_from_file(&nodes);
 
     while(1) {
         printf(">> ");
@@ -40,7 +48,7 @@ int main(void) {
                     if(j < i-2) strcat(name, " ");
                 }
             
-                add_student_to_list(&students, id, name, grade);
+                add_student_to_list(&nodes, id, name, grade);
                 continue;
             } else {
                 printf("\nError: Invalid arguments passed\n");
@@ -48,18 +56,18 @@ int main(void) {
             }
         } else if(strcmp(command,"delete")==0) {
             if(sscanf(input,"delete %d",&id)==1) {
-                delete_student_from_list(&students,id);
+                delete_student_from_list(&nodes,id);
                 continue;
             } else {
                 printf("Error: Invalid arguments passed\n");
                 printf("Type: 'help' for more details\n\n");
             } 
         } else if(strcmp(command,"select")==0) {
-            print_student_list(&students);
+            print_student_list(nodes);
         } else if(strcmp(command,"update")==0) {
             float newGrade;
             if(sscanf(input,"update %d %f",&id,&newGrade)==2) {
-                edit_student_grade(&students,id,newGrade);
+                edit_student_grade(nodes,id,newGrade);
                 continue;
             } else {
                 printf("\nError: Invalid arguments passed\n");
@@ -69,6 +77,7 @@ int main(void) {
             help_show_commands();
         } else if(strcmp(input,"exit")==0) {
             printf("Exiting...\n");
+            free_list_nodes(nodes);
             return 0;
         } else if(strcmp(input,"cls")==0) {
             system("clear");
@@ -78,5 +87,6 @@ int main(void) {
         }
     }
 
+    free_list_nodes(nodes);
     return 0;
 }

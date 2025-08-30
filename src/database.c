@@ -10,24 +10,34 @@ void save_students_to_file(Student_list *studentPtr) {
         return;
     }
 
-    for(int i=0; i<studentPtr->count_students; i++) {
+    while(studentPtr != NULL) {
         fprintf(file,"%d|%s|%.2f\n"
-                ,studentPtr->students[i].id
-                ,studentPtr->students[i].name
-                ,studentPtr->students[i].grade);
+                ,studentPtr->id
+                ,studentPtr->name
+                ,studentPtr->grade);
+        studentPtr = studentPtr->next;
     }
 
     fclose(file);
 }
 
-void load_students_from_file(Student_list *studentPtr) {
-    if(studentPtr->count_students >= MAX_STUDENTS_COUNT) return;
+void free_list_nodes(Student_list *studentPtr) {
+    while(studentPtr != NULL) {
+        Student_list *temp = studentPtr;
+        studentPtr = studentPtr->next;
+        free(temp);
+    }
+}
 
+void load_students_from_file(Student_list **studentPtr) {
     FILE *file = fopen("bin/database.txt","r");
     if(!file) {
         printf("No data to load\n");
         return;
     }
+
+    free_list_nodes(*studentPtr);
+    *studentPtr = NULL; 
 
     int id;
     char name[STUDENT_NAME_SIZE];
@@ -35,11 +45,27 @@ void load_students_from_file(Student_list *studentPtr) {
 
     char line[100];
     while(fgets(line,sizeof(line),file)) {
-        if(sscanf(line,"%d|%49[^|]|%f",&id,name,&grade)==3) {
-            studentPtr->students[studentPtr->count_students].id = id;
-            strcpy(studentPtr->students[studentPtr->count_students].name,name);
-            studentPtr->students[studentPtr->count_students].grade = grade;
-            studentPtr->count_students++;
+        if(sscanf(line,"%d|%[^|]|%f",&id,name,&grade)==3) {
+            Student_list *new_student = malloc(sizeof(Student_list));
+            if(!new_student) {
+                printf("Error: Memory allocation failed\n");
+                fclose(file);
+                return;
+            }
+
+            new_student->id = id;
+            new_student->grade = grade;
+            strcpy(new_student->name,name);
+            new_student->next = NULL;
+            
+            if(*studentPtr == NULL) {
+                *studentPtr = new_student;
+                continue;
+            }
+
+            Student_list *temp = *studentPtr;
+            while(temp->next != NULL) temp = temp->next;
+            temp->next = new_student;
         }
     }
 
@@ -47,72 +73,89 @@ void load_students_from_file(Student_list *studentPtr) {
     printf("Loading data...\n");
 }
 
-void initialize_list(Student_list *studentPtr) {
-    studentPtr->count_students = 0;
-}
-
-Student_list students;
-
-void add_student_to_list(Student_list *studentPtr,int id,char *name,float grade) {
-    if(studentPtr->count_students >= MAX_STUDENTS_COUNT) {
-        printf("Error: Student list is full\n");
-        return;
-    }
-
-    if(grade < MIN_STUDENT_GRADE || grade > MAX_STUDENT_GRADE) {
+void add_student_to_list(Student_list **studentPtr,int id,char *name,float grade) {
+     if(grade < MIN_STUDENT_GRADE || grade > MAX_STUDENT_GRADE) {
         printf("Error: Invalid grade. Must be 0-100\n");
         return;
     }
+    
+    Student_list *new_student = malloc(sizeof(Student_list));
+    if(!new_student) {
+        printf("Error: Memory allocation failed\n");
+        return;
+    }
 
-    studentPtr->students[studentPtr->count_students].id = id;
-    strcpy(studentPtr->students[studentPtr->count_students].name,name);
-    studentPtr->students[studentPtr->count_students].grade = grade;
+    strcpy(new_student->name,name);
+    new_student->grade = grade;
+    new_student->id = id;
+    new_student->next = NULL;
 
-    studentPtr->count_students++;
+    if(*studentPtr == NULL) {
+        *studentPtr = new_student;
+        save_students_to_file(*studentPtr);
+        printf("Student added successfully\n");
+        return;
+    }
+
+    Student_list *temp = *studentPtr;
+    while(temp->next != NULL) temp = temp->next;
+    temp->next = new_student;
+
+    save_students_to_file(*studentPtr);
     printf("Student added successfully\n");
-    save_students_to_file(studentPtr);
 }
 
-void delete_student_from_list(Student_list *studentPtr,int id) {
-    if(studentPtr->count_students == 0) {
+void delete_student_from_list(Student_list **studentPtr,int id) {
+    if(*studentPtr == NULL) {
         printf("Error: Student list is empty\n");
         return;
     }
 
-    for(int i=0; i<studentPtr->count_students; i++) {
-        if(studentPtr->students[i].id == id) {
-            for(int j=i; j<studentPtr->count_students-1; j++)
-                studentPtr->students[j] = studentPtr->students[j+1];
-            studentPtr->count_students--;
-            printf("Student deleted successfully\n");
-            save_students_to_file(studentPtr);
-            return;
-        }
+    Student_list *temp = *studentPtr, *prev = NULL;
+    if(temp != NULL && temp->id == id) {
+        *studentPtr = temp->next;
+        free(temp);
+        save_students_to_file(*studentPtr);
+        printf("Student deleted successfully\n");
+        return;
     }
 
-    printf("Student not found\n");
+    while(temp != NULL && temp->id != id) {
+        prev = temp;
+        temp = temp->next;
+    }
+
+    if(temp == NULL) {
+        printf("Student not found\n");
+        return;
+    }
+
+    prev->next = temp->next;
+    free(temp);
+    save_students_to_file(*studentPtr);
+    printf("Student deleted successfully\n");
 }
 
 void print_student_list(Student_list *studentPtr) {
-    if(studentPtr->count_students == 0) {
+    if(studentPtr == NULL) {
         printf("Error: Student list is empty\n");
         return;
     }
 
-    printf("\n");
-    printf("ID\tName\t\tGrade\n");
-    for(int i=0; i<studentPtr->count_students; i++) {
+    printf("\nID\tName\t\tGrade\n");
+    while(studentPtr != NULL) {
         printf("%d\t%-10s\t%.2f\n"
-                ,studentPtr->students[i].id
-                ,studentPtr->students[i].name
-                ,studentPtr->students[i].grade);
+                ,studentPtr->id
+                ,studentPtr->name
+                ,studentPtr->grade);
+        studentPtr = studentPtr->next;
     }
 
     printf("\n");
 }
 
 void edit_student_grade(Student_list *studentPtr,int id,float newGrade) {
-    if(studentPtr->count_students == 0) {
+    if(studentPtr == NULL) {
         printf("Error: Student list is empty\n");
         return;
     }
@@ -122,13 +165,15 @@ void edit_student_grade(Student_list *studentPtr,int id,float newGrade) {
         return;
     }
 
-    for(int i=0; i<studentPtr->count_students; i++) {
-        if(studentPtr->students[i].id == id) {
-            studentPtr->students[i].grade = newGrade;
-            printf("Students grade updated successfully\n");
-            save_students_to_file(studentPtr);
+    Student_list *head = studentPtr;
+    while(studentPtr != NULL) {
+        if(studentPtr->id == id) {
+            studentPtr->grade = newGrade;
+            printf("Student grade updated successfully\n");
+            save_students_to_file(head);
             return;
         }
+        studentPtr = studentPtr->next;
     }
 
     printf("Student not found\n");
