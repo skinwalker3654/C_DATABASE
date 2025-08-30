@@ -39,8 +39,18 @@ int main(void) {
             }
         
             if(i >= 4) {
-                id = atoi(tokens[1]);
-                grade = atof(tokens[i-1]);
+                char *endptr;
+                id = strtol(tokens[1],&endptr,10);
+                if(*endptr != '\0') {
+                    printf("Error: Invalid id\n");
+                    continue;
+                }
+
+                grade = strtof(tokens[i-1],&endptr);
+                if(*endptr != '\0') {
+                    printf("Error: Invalid grade\n");
+                    continue;
+                }
             
                 name[0] = 0;
                 for(int j=2; j<i-1; j++) {
@@ -59,7 +69,7 @@ int main(void) {
                 delete_student_from_list(&nodes,id);
                 continue;
             } else {
-                printf("Error: Invalid arguments passed\n");
+                printf("\nError: Invalid arguments passed\n");
                 printf("Type: 'help' for more details\n\n");
             } 
         } else if(strcmp(command,"select")==0) {
