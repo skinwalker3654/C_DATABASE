@@ -82,7 +82,7 @@ int main(void) {
         } else if(strcmp(input,"cls")==0) {
             system("clear");
         } else {
-            printf("\nError: Invalid command '%s'\n",command);
+            printf("\nError: Invalid command '%s'\n",input);
             printf("Type: 'help' for more details\n\n");
         }
     }
