@@ -4,6 +4,7 @@
 #include <signal.h>
 #include <string.h>
 
+//jj
 Student_list *nodes = NULL;
 void sigint_handler(int sig) {
     printf("\nDont worry Freeing memory and exiting...\n");
