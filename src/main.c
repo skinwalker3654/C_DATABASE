@@ -77,6 +77,7 @@ int main(void) {
             while(*arg == ' ' || *arg == '\t') arg++;
 
             if(*arg == '\0') {
+                sort_students_by_id(nodes);
                 print_student_list(nodes);
             } else if(sscanf(arg,"%d",&id)==1) {
                 Student_list *tempPtr = nodes;

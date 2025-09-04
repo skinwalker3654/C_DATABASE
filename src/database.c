@@ -73,6 +73,40 @@ void load_students_from_file(Student_list **studentPtr) {
     printf("Loading data...\n");
 }
 
+void sort_students_by_id(Student_list *studentPtr) {
+    if(!studentPtr) return;
+
+    int swapped;
+    Student_list *ptr1;
+    Student_list *lptr = NULL;
+
+    do {
+        swapped = 0;
+        ptr1 = studentPtr;
+
+        while(ptr1->next != lptr) {
+            if(ptr1->id > ptr1->next->id) { 
+                int tmp_id = ptr1->id;
+                char tmp_name[STUDENT_NAME_SIZE];
+                strcpy(tmp_name, ptr1->name);
+                float tmp_grade = ptr1->grade;
+
+                ptr1->id = ptr1->next->id;
+                strcpy(ptr1->name, ptr1->next->name);
+                ptr1->grade = ptr1->next->grade;
+
+                ptr1->next->id = tmp_id;
+                strcpy(ptr1->next->name, tmp_name);
+                ptr1->next->grade = tmp_grade;
+
+                swapped = 1;
+            }
+            ptr1 = ptr1->next;
+        }
+        lptr = ptr1;
+    } while(swapped);
+}
+
 void add_student_to_list(Student_list **studentPtr,int id,char *name,float grade) {
      if(grade < MIN_STUDENT_GRADE || grade > MAX_STUDENT_GRADE) {
         printf("Error: Invalid grade. Must be 0-100\n");

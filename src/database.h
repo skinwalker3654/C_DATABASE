@@ -14,6 +14,7 @@ typedef struct Student_list {
 
 void save_students_to_file(Student_list *studentPtr);
 void load_students_from_file(Student_list **studentPtr);
+void sort_students_by_id(Student_list *studentPtr);
 void free_list_nodes(Student_list *studentPtr);
 
 void add_student_to_list(Student_list **studentPtr,int id,char *name,float grade);
