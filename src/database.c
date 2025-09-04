@@ -236,6 +236,7 @@ void help_show_commands() {
     printf("  update <id> <new_grade>      | Updates students grade by the ID\n");
     printf("  delete / delete <id>         | Deletes all students / deletes one student by the ID\n");
     printf("  select / select <name>       | Prints all the students / Prints one student by the name\n");
-    printf("  cls                          | clears the terminal\n");
-    printf("  help                         | shows this pannel\n\n");
+    printf("  cls                          | Clears the terminal\n");
+    printf("  help                         | Shows this pannel\n");
+    printf("  exit                         | Exits the program\n\n");
 }
