@@ -70,17 +70,21 @@ int main(void) {
 
             if(*arg == '\0') {
                 Student_list *tempPtr = nodes;
+                if(tempPtr == NULL) { printf("Error: Student list is empty\n"); continue; }
                 while(tempPtr != NULL) {
                     delete_student_from_list(&nodes,tempPtr->id);
                     tempPtr = tempPtr->next;
                 }
                 printf("Students deleted successfully\n");
+                continue;
             } else if(sscanf(arg,"%d",&id)==1) {
-                delete_student_from_list(&nodes,id);
+                if(delete_student_from_list(&nodes,id)!=0) {continue;}
                 printf("Student deleted successfully\n");
+                continue;
             } else {
                 printf("\nError: Invalid arguments passed\n");
                 printf("Type: 'help' for more details\n\n");
+                continue;
             }
         } else if(strcmp(command,"select")==0) {
             char *arg = input + strlen("select");
