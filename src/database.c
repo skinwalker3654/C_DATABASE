@@ -3,6 +3,7 @@
 #include "database.h"
 #include <string.h>
 
+/*UTIL FUNCTIONS*/
 void save_students_to_file(Student_list *studentPtr) {
     FILE *file = fopen("bin/database.txt","w");
     if(!file) {
@@ -107,6 +108,7 @@ void sort_students_by_id(Student_list *studentPtr) {
     } while(swapped);
 }
 
+/*MAIN FUNCTIONS*/
 void add_student_to_list(Student_list **studentPtr,int id,char *name,float grade) {
      if(grade < MIN_STUDENT_GRADE || grade > MAX_STUDENT_GRADE) {
         printf("Error: Invalid grade. Must be 0-100\n");
