@@ -73,5 +73,5 @@ example:
 - Name can have spaces (example. `John Michael Doe`).
 - Max name size: **49 characters**.
 - It uses linked list so you can add as much students as you want
-- Students get sorted by the id (Bubble Sort) 
+- Students get sorted by the id (**Bubble Sort**) 
 - if `database.txt` dosent exists than the program creats it 
