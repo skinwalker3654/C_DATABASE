@@ -79,10 +79,10 @@ int main(void) {
             if(*arg == '\0') {
                 sort_students_by_id(nodes);
                 print_student_list(nodes);
-            } else if(sscanf(arg,"%d",&id)==1) {
+            } else if(sscanf(arg,"%s",name)==1) {
                 Student_list *tempPtr = nodes;
                 while(tempPtr != NULL) {
-                    if(tempPtr->id == id) {
+                    if(strcmp(tempPtr->name,name)==0) {
                         printf("ID: %d | Name: %s | Grade: %.2f\n"
                                 ,tempPtr->id
                                 ,tempPtr->name

@@ -228,6 +228,6 @@ void help_show_commands() {
     printf("  insert <id> <name> <grade>   | Adds a student to the database\n");
     printf("  delete <id>                  | Deletes a student from the database\n");
     printf("  update <id> <new_grade>      | Updates students grade by the ID\n");
-    printf("  select / select <id>         | Prints all the students / Prints the student with that id\n");
+    printf("  select / select <name>       | Prints all the students / Prints student by name\n");
     printf("  cls                          | clears the terminal\n\n");
 }
