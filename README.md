@@ -56,4 +56,4 @@ example:
 - It uses linked list so you can add as much students as you want
 - Students get sorted by the ID (**Bubble Sort**) 
 - If `database.txt` dosent exists than the program creats it 
-- The colors are not same in all systems (Terminal configuration deppends)
+- The colors are not the same in every systems or terminal configuration
