@@ -7,9 +7,9 @@ It support **CROUD OPARATIONS** (Create, Read, Update, Delete) with saving on a 
 
 ## Features
 - **Insert** new students (ID, Name, Grade)
-- **Select** all students **or** select a student by the name
+- **Select** all students **or** select one by name
 - **Edit** the grade of a student by using id
-- **Delete** students by id
+- **Delete** all students **or** deleted one by id
 - Handls ctr+c signal in case you exit before Memory gets freed
 - Auto save changes in `database.txt`
 

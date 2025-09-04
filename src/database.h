@@ -4,6 +4,7 @@
 #define STUDENT_NAME_SIZE   50
 #define MAX_STUDENT_GRADE   100
 #define MIN_STUDENT_GRADE   0
+#define MIN_STUDENT_IDNUM   1
 
 typedef struct Student_list {
     char name[STUDENT_NAME_SIZE];

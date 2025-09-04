@@ -65,13 +65,23 @@ int main(void) {
                 printf("Type: 'help' for more details\n\n");
             }
         } else if(strcmp(command,"delete")==0) {
-            if(sscanf(input,"delete %d",&id)==1) {
+            char *arg = input + strlen("delete");
+            while(*arg == ' ' || *arg == '\t') arg++;
+
+            if(*arg == '\0') {
+                Student_list *tempPtr = nodes;
+                while(tempPtr != NULL) {
+                    delete_student_from_list(&nodes,tempPtr->id);
+                    tempPtr = tempPtr->next;
+                }
+                printf("Students deleted successfully\n");
+            } else if(sscanf(arg,"%d",&id)==1) {
                 delete_student_from_list(&nodes,id);
-                continue;
+                printf("Student deleted successfully\n");
             } else {
                 printf("\nError: Invalid arguments passed\n");
                 printf("Type: 'help' for more details\n\n");
-            } 
+            }
         } else if(strcmp(command,"select")==0) {
             char *arg = input + strlen("select");
             while(*arg == ' ' || *arg == '\t') arg++;

@@ -121,6 +121,12 @@ void add_student_to_list(Student_list **studentPtr,int id,char *name,float grade
         return;
     }
 
+    if(id < MIN_STUDENT_IDNUM) {
+        printf("Error: Invalid id. It must be a positive number\n");
+        free(new_student);
+        return;
+    }
+
     Student_list *temp1 = *studentPtr;
     while(temp1 != NULL) {
         if(temp1->id == id) {
@@ -162,7 +168,6 @@ void delete_student_from_list(Student_list **studentPtr,int id) {
         *studentPtr = temp->next;
         free(temp);
         save_students_to_file(*studentPtr);
-        printf("Student deleted successfully\n");
         return;
     }
 
@@ -179,7 +184,6 @@ void delete_student_from_list(Student_list **studentPtr,int id) {
     prev->next = temp->next;
     free(temp);
     save_students_to_file(*studentPtr);
-    printf("Student deleted successfully\n");
 }
 
 void print_student_list(Student_list *studentPtr) {
@@ -228,8 +232,9 @@ void edit_student_grade(Student_list *studentPtr,int id,float newGrade) {
 void help_show_commands() {
     printf("\nCommands:\n");
     printf("  insert <id> <name> <grade>   | Adds a student to the database\n");
-    printf("  delete <id>                  | Deletes a student from the database\n");
     printf("  update <id> <new_grade>      | Updates students grade by the ID\n");
-    printf("  select / select <name>       | Prints all the students / Prints student by name\n");
-    printf("  cls                          | clears the terminal\n\n");
+    printf("  delete / delete <id>         | Deletes all students / deletes one student by the ID\n");
+    printf("  select / select <name>       | Prints all the students / Prints one student by the name\n");
+    printf("  cls                          | clears the terminal\n");
+    printf("  help                         | shows this pannel\n\n");
 }
