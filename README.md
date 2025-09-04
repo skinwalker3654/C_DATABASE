@@ -12,6 +12,7 @@ It support **CROUD OPARATIONS** (Create, Read, Update, Delete) with saving on a 
 - **Delete** all students **or** deleted one by id
 - Handls ctr+c signal in case you exit before Memory gets freed
 - Auto save changes in `database.txt`
+- ANSI COLORS
 
 ---
 
@@ -74,4 +75,5 @@ example:
 - Max name size: **49 characters**.
 - It uses linked list so you can add as much students as you want
 - Students get sorted by the ID (**Bubble Sort**) 
-- if `database.txt` dosent exists than the program creats it 
+- If `database.txt` dosent exists than the program creats it 
+- The colors are not same in all systems (Terminal configuration deppends)

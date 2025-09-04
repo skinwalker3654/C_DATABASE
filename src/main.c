@@ -98,10 +98,11 @@ int main(void) {
                 Student_list *tempPtr = nodes;
                 while(tempPtr != NULL) {
                     if(strcmp(tempPtr->name,name)==0) {
-                        printf(BOLD YELLOW"ID: %d | Name: %s | Grade: %.2f\n"
-                                ,tempPtr->id
-                                ,tempPtr->name
-                                ,tempPtr->grade); 
+                        printf(BOLD YELLOW"ID: %d"RESET,tempPtr->id);
+                        printf(" | ");
+                        printf(BOLD YELLOW "Name: %s"RESET,tempPtr->name);
+                        printf(" | ");
+                        printf(BOLD YELLOW "Grade: %.2f\n"RESET,tempPtr->grade); 
                         break;
                     }
                     tempPtr = tempPtr->next;
@@ -126,7 +127,7 @@ int main(void) {
         } else if(strcmp(input,"help")==0) {
             help_show_commands();
         } else if(strcmp(input,"exit")==0) {
-            printf("Exiting...\n");
+            printf(BOLD BLUE"Exiting...\n"RESET);
             free_list_nodes(nodes);
             return 0;
         } else if(strcmp(input,"cls")==0) {
