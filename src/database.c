@@ -168,7 +168,7 @@ int delete_student_from_list(Student_list **studentPtr,int id) {
         *studentPtr = temp->next;
         free(temp);
         save_students_to_file(*studentPtr);
-        return -1;
+        return 0;
     }
 
     while(temp != NULL && temp->id != id) {

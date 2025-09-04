@@ -69,12 +69,13 @@ int main(void) {
             while(*arg == ' ' || *arg == '\t') arg++;
 
             if(*arg == '\0') {
-                Student_list *tempPtr = nodes;
-                if(tempPtr == NULL) { printf("Error: Student list is empty\n"); continue; }
-                while(tempPtr != NULL) {
-                    delete_student_from_list(&nodes,tempPtr->id);
-                    tempPtr = tempPtr->next;
+                if(nodes == NULL) { 
+                    printf("Error: Student list is empty\n"); 
+                    continue; 
                 }
+                free_list_nodes(nodes);
+                nodes = NULL;
+                save_students_to_file(nodes);
                 printf("Students deleted successfully\n");
                 continue;
             } else if(sscanf(arg,"%d",&id)==1) {
@@ -129,7 +130,11 @@ int main(void) {
             free_list_nodes(nodes);
             return 0;
         } else if(strcmp(input,"cls")==0) {
-            system("clear");
+            #ifdef _WIN32
+                system("cls");
+            #else
+                system("clear");
+            #endif
         } else {
             printf("\nError: Invalid command '%s'\n",input);
             printf("Type: 'help' for more details\n\n");
