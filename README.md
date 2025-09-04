@@ -30,28 +30,8 @@ make clean
 ```
 ---
 
-## Then you can write commands like:
-
-### Insert student
-```bash
-insert 1 John Doe 8.5
-```
-
-### Select students
-```bash
-select
-```
-
-### Edit student grade
-```bash
-edit 1 9.7
-```
-
-### Delete student
-```bash
-delete 1
-```
-
+## SCREENSHOT
+![alt text](https://github.com/skinwalker3654/C_DATABASE/blob/main/.github/screenshot.png?raw=true)
 ---
 
 ## Database file
