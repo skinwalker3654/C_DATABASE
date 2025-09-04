@@ -73,7 +73,31 @@ int main(void) {
                 printf("Type: 'help' for more details\n\n");
             } 
         } else if(strcmp(command,"select")==0) {
-            print_student_list(nodes);
+            char *arg = input + strlen("select");
+            while(*arg == ' ' || *arg == '\t') arg++;
+
+            if(*arg == '\0') {
+                print_student_list(nodes);
+            } else if(sscanf(arg,"%d",&id)==1) {
+                Student_list *tempPtr = nodes;
+                while(tempPtr != NULL) {
+                    if(tempPtr->id == id) {
+                        printf("ID: %d | Name: %s | Grade: %.2f\n"
+                                ,tempPtr->id
+                                ,tempPtr->name
+                                ,tempPtr->grade); 
+                        break;
+                    }
+                    tempPtr = tempPtr->next;
+                }
+                if(tempPtr == NULL) {
+                    printf("Error: Student not found\n");
+                    continue;
+                }
+            } else {
+                printf("\nError: Invalid arguments passed\n");
+                printf("Type: 'help' for more details\n\n");
+            }
         } else if(strcmp(command,"update")==0) {
             float newGrade;
             if(sscanf(input,"update %d %f",&id,&newGrade)==2) {

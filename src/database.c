@@ -136,7 +136,7 @@ void delete_student_from_list(Student_list **studentPtr,int id) {
     }
 
     if(temp == NULL) {
-        printf("Student not found\n");
+        printf("Error: Student not found\n");
         return;
     }
 
@@ -186,14 +186,14 @@ void edit_student_grade(Student_list *studentPtr,int id,float newGrade) {
         studentPtr = studentPtr->next;
     }
 
-    printf("Student not found\n");
+    printf("Error: Student not found\n");
 }
 
 void help_show_commands() {
     printf("\nCommands:\n");
     printf("  insert <id> <name> <grade>   | Adds a student to the database\n");
     printf("  delete <id>                  | Deletes a student from the database\n");
-    printf("  select                       | Prints all the students\n");
     printf("  update <id> <new_grade>      | Updates students grade by the ID\n");
+    printf("  select / select <id>         | Prints all the students / Prints the student with that id\n");
     printf("  cls                          | clears the terminal\n\n");
 }
