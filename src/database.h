@@ -26,4 +26,14 @@ void print_student_list(Student_list *studentPtr);
 void edit_student_grade(Student_list *studentPtr,int id,float newGrade);
 void help_show_commands(void);
 
+/*COLORS*/
+#define RESET   "\033[0m"
+#define RED     "\033[31m"
+#define GREEN   "\033[32m"
+#define YELLOW  "\033[33m"
+#define BLUE    "\033[34m"
+#define MAGENTA "\033[35m"
+#define CYAN    "\033[36m"
+#define BOLD    "\033[1m"
+
 #endif

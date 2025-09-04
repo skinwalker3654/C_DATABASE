@@ -7,7 +7,7 @@
 void save_students_to_file(Student_list *studentPtr) {
     FILE *file = fopen("bin/database.txt","w");
     if(!file) {
-        printf("Error: Failed to open the file\n");
+        printf(RED"Error: Failed to open the file\n"RESET);
         return;
     }
 
@@ -49,7 +49,7 @@ void load_students_from_file(Student_list **studentPtr) {
         if(sscanf(line,"%d|%[^|]|%f",&id,name,&grade)==3) {
             Student_list *new_student = malloc(sizeof(Student_list));
             if(!new_student) {
-                printf("Error: Memory allocation failed\n");
+                printf(RED"Error: Memory allocation failed\n"RESET);
                 fclose(file);
                 return;
             }
@@ -71,7 +71,7 @@ void load_students_from_file(Student_list **studentPtr) {
     }
 
     fclose(file);
-    printf("Loading data...\n");
+    printf(BOLD YELLOW"Loading data...\n"RESET);
 }
 
 void sort_students_by_id(Student_list *studentPtr) {
@@ -111,18 +111,18 @@ void sort_students_by_id(Student_list *studentPtr) {
 /*MAIN FUNCTIONS*/
 void add_student_to_list(Student_list **studentPtr,int id,char *name,float grade) {
      if(grade < MIN_STUDENT_GRADE || grade > MAX_STUDENT_GRADE) {
-        printf("Error: Invalid grade. Must be 0-100\n");
+        printf(RED"Error: Invalid grade. Must be 0-100\n"RESET);
         return;
     }
     
     Student_list *new_student = malloc(sizeof(Student_list));
     if(!new_student) {
-        printf("Error: Memory allocation failed\n");
+        printf(RED"Error: Memory allocation failed\n"RESET);
         return;
     }
 
     if(id < MIN_STUDENT_IDNUM) {
-        printf("Error: Invalid id. It must be a positive number\n");
+        printf(RED"Error: Invalid id. It must be a positive number\n"RESET);
         free(new_student);
         return;
     }
@@ -130,7 +130,7 @@ void add_student_to_list(Student_list **studentPtr,int id,char *name,float grade
     Student_list *temp1 = *studentPtr;
     while(temp1 != NULL) {
         if(temp1->id == id) {
-            printf("Error: This id already exists\n");
+            printf(RED"Error: This id already exists\n"RESET);
             free(new_student);
             return;
         }
@@ -145,7 +145,7 @@ void add_student_to_list(Student_list **studentPtr,int id,char *name,float grade
     if(*studentPtr == NULL) {
         *studentPtr = new_student;
         save_students_to_file(*studentPtr);
-        printf("Student added successfully\n");
+        printf(GREEN"Student added successfully\n"RESET);
         return;
     }
 
@@ -154,12 +154,12 @@ void add_student_to_list(Student_list **studentPtr,int id,char *name,float grade
     temp2->next = new_student;
 
     save_students_to_file(*studentPtr);
-    printf("Student added successfully\n");
+    printf(GREEN"Student added successfully\n"RESET);
 }
 
 int delete_student_from_list(Student_list **studentPtr,int id) {
     if(*studentPtr == NULL) {
-        printf("Error: Student list is empty\n");
+        printf(RED"Error: Student list is empty\n"RESET);
         return -1;
     }
 
@@ -177,7 +177,7 @@ int delete_student_from_list(Student_list **studentPtr,int id) {
     }
 
     if(temp == NULL) {
-        printf("Error: Student not found\n");
+        printf(RED"Error: Student not found\n"RESET);
         return -1;
     }
 
@@ -189,11 +189,11 @@ int delete_student_from_list(Student_list **studentPtr,int id) {
 
 void print_student_list(Student_list *studentPtr) {
     if(studentPtr == NULL) {
-        printf("Error: Student list is empty\n");
+        printf(RED"Error: Student list is empty\n"RESET);
         return;
     }
 
-    printf("\nID\tName\t\tGrade\n");
+    printf(BOLD BLUE"\nID\tName\t\tGrade\n"RESET);
     while(studentPtr != NULL) {
         printf("%d\t%-10s\t%.2f\n"
                 ,studentPtr->id
@@ -207,12 +207,12 @@ void print_student_list(Student_list *studentPtr) {
 
 void edit_student_grade(Student_list *studentPtr,int id,float newGrade) {
     if(studentPtr == NULL) {
-        printf("Error: Student list is empty\n");
+        printf(RED"Error: Student list is empty\n"RESET);
         return;
     }
 
     if(newGrade < MIN_STUDENT_GRADE || newGrade > MAX_STUDENT_GRADE) {
-        printf("Error: Invalid grade\n");
+        printf(RED"Error: Invalid grade\n"RESET);
         return;
     }
 
@@ -220,23 +220,23 @@ void edit_student_grade(Student_list *studentPtr,int id,float newGrade) {
     while(studentPtr != NULL) {
         if(studentPtr->id == id) {
             studentPtr->grade = newGrade;
-            printf("Student grade updated successfully\n");
+            printf(GREEN"Student grade updated successfully\n"RED);
             save_students_to_file(head);
             return;
         }
         studentPtr = studentPtr->next;
     }
 
-    printf("Error: Student not found\n");
+    printf(RED"Error: Student not found\n"RESET);
 }
 
 void help_show_commands() {
-    printf("\nCommands:\n");
-    printf("  insert <id> <name> <grade>   | Adds a student to the database\n");
-    printf("  update <id> <new_grade>      | Updates students grade by the ID\n");
-    printf("  delete / delete <id>         | Deletes all students / deletes one student by the ID\n");
-    printf("  select / select <name>       | Prints all the students / Prints one student by the name\n");
-    printf("  cls                          | Clears the terminal\n");
-    printf("  help                         | Shows this pannel\n");
-    printf("  exit                         | Exits the program\n\n");
+    printf(BOLD YELLOW"\nCommands:\n"RESET);
+    printf(BOLD YELLOW"  insert <id> <name> <grade>   | Adds a student to the database\n"RESET);
+    printf(BOLD YELLOW"  update <id> <new_grade>      | Updates students grade by the ID\n"RESET);
+    printf(BOLD YELLOW"  delete / delete <id>         | Deletes all students / deletes one student by the ID\n"RESET);
+    printf(BOLD YELLOW"  select / select <name>       | Prints all the students / Prints one student by the name\n"RESET);
+    printf(BOLD YELLOW"  cls                          | Clears the terminal\n"RESET);
+    printf(BOLD YELLOW"  help                         | Shows this pannel\n"RESET);
+    printf(BOLD YELLOW"  exit                         | Exits the program\n\n"RESET);
 }

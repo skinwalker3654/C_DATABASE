@@ -6,7 +6,7 @@
 
 Student_list *nodes = NULL;
 void sigint_handler(int sig) {
-    printf("\nDont worry Freeing memory and exiting...\n");
+    printf(GREEN"\nDont worry Freeing memory and exiting...\n"RESET);
     free_list_nodes(nodes); 
     exit(0);
 }
@@ -22,7 +22,7 @@ int main(void) {
     load_students_from_file(&nodes);
 
     while(1) {
-        printf(">> ");
+        printf(CYAN">> "RESET);
         fgets(input,sizeof(input),stdin);
         input[strcspn(input,"\n")] = 0;
 
@@ -42,13 +42,13 @@ int main(void) {
                 char *endptr;
                 id = strtol(tokens[1],&endptr,10);
                 if(*endptr != '\0') {
-                    printf("Error: Invalid id\n");
+                    printf(RED"Error: Invalid id\n"RESET);
                     continue;
                 }
 
                 grade = strtof(tokens[i-1],&endptr);
                 if(*endptr != '\0') {
-                    printf("Error: Invalid grade\n");
+                    printf(RED"Error: Invalid grade\n"RESET);
                     continue;
                 }
             
@@ -61,8 +61,8 @@ int main(void) {
                 add_student_to_list(&nodes, id, name, grade);
                 continue;
             } else {
-                printf("\nError: Invalid arguments passed\n");
-                printf("Type: 'help' for more details\n\n");
+                printf(RED"\nError: Invalid arguments passed\n"RESET);
+                printf(RED"Type: 'help' for more details\n\n"RESET);
             }
         } else if(strcmp(command,"delete")==0) {
             char *arg = input + strlen("delete");
@@ -70,21 +70,21 @@ int main(void) {
 
             if(*arg == '\0') {
                 if(nodes == NULL) { 
-                    printf("Error: Student list is empty\n"); 
+                    printf(RED"Error: Student list is empty\n"RESET); 
                     continue; 
                 }
                 free_list_nodes(nodes);
                 nodes = NULL;
                 save_students_to_file(nodes);
-                printf("Students deleted successfully\n");
+                printf(GREEN"Students deleted successfully\n"RESET);
                 continue;
             } else if(sscanf(arg,"%d",&id)==1) {
                 if(delete_student_from_list(&nodes,id)!=0) {continue;}
-                printf("Student deleted successfully\n");
+                printf(GREEN"Student deleted successfully\n"RESET);
                 continue;
             } else {
-                printf("\nError: Invalid arguments passed\n");
-                printf("Type: 'help' for more details\n\n");
+                printf(RED"\nError: Invalid arguments passed\n"RESET);
+                printf(RED"Type: 'help' for more details\n\n"RESET);
                 continue;
             }
         } else if(strcmp(command,"select")==0) {
@@ -98,7 +98,7 @@ int main(void) {
                 Student_list *tempPtr = nodes;
                 while(tempPtr != NULL) {
                     if(strcmp(tempPtr->name,name)==0) {
-                        printf("ID: %d | Name: %s | Grade: %.2f\n"
+                        printf(BOLD YELLOW"ID: %d | Name: %s | Grade: %.2f\n"
                                 ,tempPtr->id
                                 ,tempPtr->name
                                 ,tempPtr->grade); 
@@ -107,12 +107,12 @@ int main(void) {
                     tempPtr = tempPtr->next;
                 }
                 if(tempPtr == NULL) {
-                    printf("Error: Student not found\n");
+                    printf(RED"Error: Student not found\n"RESET);
                     continue;
                 }
             } else {
-                printf("\nError: Invalid arguments passed\n");
-                printf("Type: 'help' for more details\n\n");
+                printf(RED"\nError: Invalid arguments passed\n"RESET);
+                printf(RED"Type: 'help' for more details\n\n"RESET);
             }
         } else if(strcmp(command,"update")==0) {
             float newGrade;
@@ -120,8 +120,8 @@ int main(void) {
                 edit_student_grade(nodes,id,newGrade);
                 continue;
             } else {
-                printf("\nError: Invalid arguments passed\n");
-                printf("Type: 'help' for more details\n\n");
+                printf(RED"\nError: Invalid arguments passed\n"RESET);
+                printf(RED"Type: 'help' for more details\n\n"RESET);
             } 
         } else if(strcmp(input,"help")==0) {
             help_show_commands();
@@ -136,8 +136,8 @@ int main(void) {
                 system("clear");
             #endif
         } else {
-            printf("\nError: Invalid command '%s'\n",input);
-            printf("Type: 'help' for more details\n\n");
+            printf(RED"\nError: Invalid command '%s'\n"RESET,input);
+            printf(RED"Type: 'help' for more details\n\n"RESET);
         }
     }
 
