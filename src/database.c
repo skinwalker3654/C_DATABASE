@@ -81,7 +81,7 @@ void sort_students_by_id(Student_list *studentPtr) {
     Student_list *ptr1;
     Student_list *lptr = NULL;
 
-    do {
+    while(swapped) {
         swapped = 0;
         ptr1 = studentPtr;
 
@@ -105,7 +105,7 @@ void sort_students_by_id(Student_list *studentPtr) {
             ptr1 = ptr1->next;
         }
         lptr = ptr1;
-    } while(swapped);
+    } 
 }
 
 /*MAIN FUNCTIONS*/
