@@ -69,6 +69,6 @@ NOTES:
 
     the max characters for a name is 49.
 
-    Students are getting sorted by the id Number
-    by using the bubble sort algorithm so the program 
+    Students are getting sorted by the id Number,
+    using the bubble sort algorithm so the program 
     is more clear when you want to print the students
