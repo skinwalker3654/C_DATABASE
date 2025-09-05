@@ -1,0 +1,70 @@
+This Program is an SQL like database for students in c
+So you can store delete or change things to students.
+
+-------------------------------------------------------------------------------
+
+COMMANDS: insert , delete , select , update , exit , cls , count , help
+
+-------------------------------------------------------------------------------
+
+    EXPLANATION:
+        (insert) -> This command inserts a student to the database.
+                    It insert the id the name and grade of a student.
+
+        (delete) -> This command deletes a student from the database
+                    OR deletes every student if you use it correctly. (Explained in SYNTAX)
+
+        (select) -> This command takes one student and prints the information
+                    of that student OR you can print every student the database has. (Explained in SYNTAX)
+        
+        (update) -> This command changes a students grade
+
+        (exit) -> This command exits the program
+
+        (cls) -> This command clears the terminal screen
+                 for cleaner use.
+
+        (count) -> This command print the students count,
+                   it finds how many students are in the list
+
+        (help) -> This command shows you a panel of all the commands
+                  and explain them shortly
+
+    -------------------------------------------------------------------------
+
+    SYNTAX:
+        (insert) -> "insert <id> <name> <grade>" To insert the student
+
+        (delete) -> "delete" OR "delete <id>" The 1st use deletes all the students
+                                              but the 2nd use deletes the student who has the <id> you passed
+
+        (select) -> "select" OR "select <name>" The 1st use prints all the students info
+                                                but the 2nd use prints only students <name> info
+
+        (update) -> "update <id> <new_grade>" It find the student with the <id> you passed and changes 
+                                              his grade with the <new_grade>
+
+        (exit) -> "exit" Nothing special just exiting the program like that
+
+        (cls) -> "cls" Also Nothing special just clears the terminal
+
+        (count) -> "count" This is how you can see how many students have you added in the list
+
+        (help) -> "help" If you type this command you will see 
+                         all the commands without reading this documentation
+
+-------------------------------------------------------------------------------
+
+NOTES: 
+    CTRL + S signal is handed so the programs frees 
+            the memory even if you dint get to the exit.
+
+    The program uses Linked list for adding students
+    so you can add as many as you want.
+
+    The colors are not the same in every system or terminal configuration.
+
+    The data is stored on a .txt file and parsed to the program every time
+    it runs so you can still see them. Syntax of storing data -> ID|Name|Grade
+
+    the max chars for a name is 49.

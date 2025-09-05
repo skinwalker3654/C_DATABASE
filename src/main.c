@@ -30,34 +30,31 @@ int main(void) {
         sscanf(input,"%s",command);
 
         if(strcmp(command,"insert")==0) {
-            char *tokens[10];
+            char *tokens[4];
             int i = 0;
             char *ptr = strtok(input, " "); 
-            while(ptr && i < 10) {
+            while(ptr && i < 4) {
                 tokens[i++] = ptr;
                 ptr = strtok(NULL, " ");
             }
-        
-            if(i >= 4) {
+
+            if(i == 4) {
                 char *endptr;
-                id = strtol(tokens[1],&endptr,10);
+                id = strtol(tokens[1], &endptr, 10);
                 if(*endptr != '\0') {
-                    printf(RED"Error: Invalid id\n"RESET);
+                    printf(RED"Error: Invalid arguments\n"RESET);
                     continue;
                 }
 
-                grade = strtof(tokens[i-1],&endptr);
+                grade = strtof(tokens[3], &endptr);
                 if(*endptr != '\0') {
-                    printf(RED"Error: Invalid grade\n"RESET);
+                    printf(RED"Error: Invalid arguments\n"RESET);
                     continue;
                 }
-            
-                name[0] = 0;
-                for(int j=2; j<i-1; j++) {
-                    strcat(name, tokens[j]);
-                    if(j < i-2) strcat(name, " ");
-                }
-            
+
+                strncpy(name, tokens[2], sizeof(name));
+                name[sizeof(name)-1] = '\0';
+
                 add_student_to_list(&nodes, id, name, grade);
                 continue;
             } else {
@@ -124,6 +121,16 @@ int main(void) {
                 printf(RED"\nError: Invalid arguments passed\n"RESET);
                 printf(RED"Type: 'help' for more details\n\n"RESET);
             } 
+        } else if(strcmp(input,"count")==0) {
+            int studentCount = find_students_count(nodes);
+            if(studentCount == -1) {continue;}
+            else if(studentCount == 1) {
+                printf(BOLD YELLOW"There is %d student in the list\n"RESET,studentCount);
+                continue;
+            } else if(studentCount > 1) {
+                printf(BOLD YELLOW"There are %d students in the list\n"RESET,studentCount);
+                continue;
+            }
         } else if(strcmp(input,"help")==0) {
             help_show_commands();
         } else if(strcmp(input,"exit")==0) {

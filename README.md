@@ -10,6 +10,7 @@ It support **CROUD OPARATIONS** (Create, Read, Update, Delete) with saving on a 
 - **Select** all students **or** select one by name
 - **Edit** the grade of a student by using id
 - **Delete** all students **or** deleted one by id
+- **Count** all students in the list
 - Handls ctr+c signal in case you exit before Memory gets freed
 - Auto save changes in `database.txt`
 - ANSI COLORS
@@ -51,7 +52,6 @@ example:
 ---
 
 ## 📌 Notes
-- Name can have spaces (example. `John Michael Doe`).
 - Max name size: **49 characters**.
 - It uses linked list so you can add as much students as you want
 - Students get sorted by the ID (**Bubble Sort**) 
