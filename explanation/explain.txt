@@ -68,3 +68,7 @@ NOTES:
     the program runs so you can still use them. Syntax of storing data -> ID|Name|Grade
 
     the max characters for a name is 49.
+
+    Students are getting sorted by the id Number
+    by using the bubble sort algorithm so its more clear
+    when you print the students
