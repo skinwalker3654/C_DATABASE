@@ -1,5 +1,5 @@
-This Program is an SQL like database for students in c
-So you can store delete or change things to students.
+This Program is an SQL like database for students in C
+so you can store, delete, change or count students in the list.
 
 -------------------------------------------------------------------------------
 
@@ -65,6 +65,6 @@ NOTES:
     The colors are not the same in every system or terminal configuration.
 
     The data is stored on a .txt file and parsed to the program every time
-    it runs so you can still see them. Syntax of storing data -> ID|Name|Grade
+    the program runs so you can still use them. Syntax of storing data -> ID|Name|Grade
 
-    the max chars for a name is 49.
+    the max characters for a name is 49.
