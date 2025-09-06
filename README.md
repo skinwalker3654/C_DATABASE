@@ -57,3 +57,4 @@ example:
 - Students get sorted by the ID (**Bubble Sort**) 
 - If `database.txt` dosent exists than the program creats it 
 - The colors are not the same in every systems or terminal configuration
+- You cant insert two students with the same name or ID 

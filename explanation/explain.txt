@@ -71,5 +71,10 @@ NOTES:
 
     Students are getting sorted by the id Number,
     using the bubble sort algorithm so the program 
-    gets more clear when you want to print the students from the list
+    gets more clear when you want to print the students from the list.
+
+    You cant insert two students with the same name or ID
+    Because the commands delete , select uses this datas as parameters
+    and if two students have the same name or ID the program prints 
+    or deletes the 1st of those two it finds, So we made insertion checking.
 
