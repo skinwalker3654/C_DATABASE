@@ -33,7 +33,7 @@ void free_list_nodes(Student_list *studentPtr) {
 void load_students_from_file(Student_list **studentPtr) {
     FILE *file = fopen("bin/database.txt","r");
     if(!file) {
-        printf("No data to load\n");
+        printf("There is no data to load\n");
         return;
     }
 
@@ -111,7 +111,7 @@ void sort_students_by_id(Student_list *studentPtr) {
 /*MAIN FUNCTIONS*/
 void add_student_to_list(Student_list **studentPtr,int id,char *name,float grade) {
      if(grade < MIN_STUDENT_GRADE || grade > MAX_STUDENT_GRADE) {
-        printf(RED"Error: Invalid grade. Must be 0-100\n"RESET);
+        printf(RED"Error: Invalid grade. Must be a number between 0-100\n"RESET);
         return;
     }
     
@@ -122,7 +122,7 @@ void add_student_to_list(Student_list **studentPtr,int id,char *name,float grade
     }
 
     if(id < MIN_STUDENT_IDNUM) {
-        printf(RED"Error: Invalid id. It must be a positive number\n"RESET);
+        printf(RED"Error: Invalid ID. It must be a positive number\n"RESET);
         free(new_student);
         return;
     }
@@ -187,7 +187,7 @@ int delete_student_from_list(Student_list **studentPtr,int id) {
     }
 
     if(temp == NULL) {
-        printf(RED"Error: Student not found\n"RESET);
+        printf(RED"Error: Student not found in the list\n"RESET);
         return -1;
     }
 
@@ -222,7 +222,7 @@ void edit_student_grade(Student_list *studentPtr,int id,float newGrade) {
     }
 
     if(newGrade < MIN_STUDENT_GRADE || newGrade > MAX_STUDENT_GRADE) {
-        printf(RED"Error: Invalid grade\n"RESET);
+        printf(RED"Error: Invalid grade. Must be a number between 0-100\n"RESET);
         return;
     }
 
@@ -237,7 +237,7 @@ void edit_student_grade(Student_list *studentPtr,int id,float newGrade) {
         studentPtr = studentPtr->next;
     }
 
-    printf(RED"Error: Student not found\n"RESET);
+    printf(RED"Error: Student not found in the list\n"RESET);
 }
 
 int find_students_count(Student_list *studentPtr) {
