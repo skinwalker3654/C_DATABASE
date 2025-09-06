@@ -3,7 +3,7 @@ so you can store, delete, change or count students in the list.
 
 -------------------------------------------------------------------------------
 
-COMMANDS: insert , delete , select , update , exit , cls , count , help
+COMMANDS: insert , delete , select , update , exit , cls , count , average , help
 
 -------------------------------------------------------------------------------
 
@@ -27,6 +27,9 @@ COMMANDS: insert , delete , select , update , exit , cls , count , help
         (count) -> This command print the students count,
                    it finds how many students are in the list
 
+        (average) -> This command shows you the average grade
+                     of all the students in the list
+
         (help) -> This command shows you a panel of all the commands
                   and explain them shortly
 
@@ -49,6 +52,8 @@ COMMANDS: insert , delete , select , update , exit , cls , count , help
         (cls) -> "cls" Also Nothing special just clears the terminal
 
         (count) -> "count" This is how you can see how many students have you added in the list
+
+        (average) -> "average" And after you write this you can see the average grade
 
         (help) -> "help" If you type this command you will see 
                          all the commands without reading this documentation

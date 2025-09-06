@@ -11,6 +11,7 @@ It support **CROUD OPARATIONS** (Create, Read, Update, Delete) with saving on a 
 - **Edit** the grade of a student by using id
 - **Delete** all students **or** deleted one by id
 - **Count** all students in the list
+- **Average** find the average grade of students
 - Handls ctr+c signal in case you exit before Memory gets freed
 - Auto save changes in `database.txt`
 - ANSI COLORS

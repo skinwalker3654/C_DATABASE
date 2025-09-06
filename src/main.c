@@ -134,6 +134,8 @@ int main(void) {
                 printf(BOLD YELLOW"There are %d students in the list\n"RESET,studentCount);
                 continue;
             }
+        } else if(strcmp(input,"average")==0) {
+            print_average_grade(nodes);
         } else if(strcmp(input,"help")==0) {
             help_show_commands();
         } else if(strcmp(input,"exit")==0) {
