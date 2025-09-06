@@ -21,6 +21,11 @@ int main(void) {
     signal(SIGINT, sigint_handler);
     load_students_from_file(&nodes);
 
+    #ifdef _WIN32
+        system("cls");
+    #else
+        system("clear");
+    #endif
     while(1) {
         printf(CYAN">> "RESET);
         fgets(input,sizeof(input),stdin);
