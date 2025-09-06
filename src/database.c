@@ -230,7 +230,7 @@ void edit_student_grade(Student_list *studentPtr,int id,float newGrade) {
     while(studentPtr != NULL) {
         if(studentPtr->id == id) {
             studentPtr->grade = newGrade;
-            printf(GREEN"Student grade updated successfully\n"RED);
+            printf(GREEN"Student grade updated successfully\n"RESET);
             save_students_to_file(head);
             return;
         }
