@@ -42,13 +42,15 @@ int main(void) {
                 char *endptr;
                 id = strtol(tokens[1], &endptr, 10);
                 if(*endptr != '\0') {
-                    printf(RED"Error: Invalid arguments\n"RESET);
+                    printf(RED"\nError: Invalid arguments passed\n"RESET);
+                    printf(RED"Type: 'help' for more details\n\n"RESET);
                     continue;
                 }
 
                 grade = strtof(tokens[3], &endptr);
                 if(*endptr != '\0') {
-                    printf(RED"Error: Invalid arguments\n"RESET);
+                    printf(RED"\nError: Invalid arguments passed\n"RESET);
+                    printf(RED"Type: 'help' for more details\n\n"RESET);
                     continue;
                 }
 
