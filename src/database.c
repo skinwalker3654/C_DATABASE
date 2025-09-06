@@ -75,7 +75,7 @@ void load_students_from_file(Student_list **studentPtr) {
 }
 
 void sort_students_by_id(Student_list *studentPtr) {
-    if(!studentPtr) return;
+    if(studentPtr == NULL) return;
 
     int swapped;
     Student_list *ptr1;
@@ -130,11 +130,21 @@ void add_student_to_list(Student_list **studentPtr,int id,char *name,float grade
     Student_list *temp1 = *studentPtr;
     while(temp1 != NULL) {
         if(temp1->id == id) {
-            printf(RED"Error: This id already exists\n"RESET);
+            printf(RED"Error: Student with this ID already exists\n"RESET);
             free(new_student);
             return;
         }
         temp1 = temp1->next;
+    }
+
+    Student_list *temp2 = *studentPtr;
+    while(temp2 != NULL) {
+        if(strcmp(temp2->name,name)==0) {
+            printf(RED"Error: Student with this name already exists\n"RESET);
+            free(new_student);
+            return;
+        }
+        temp2 = temp2->next;
     }
 
     strcpy(new_student->name,name);
@@ -149,9 +159,9 @@ void add_student_to_list(Student_list **studentPtr,int id,char *name,float grade
         return;
     }
 
-    Student_list *temp2 = *studentPtr;
-    while(temp2->next != NULL) temp2 = temp2->next;
-    temp2->next = new_student;
+    Student_list *temp3 = *studentPtr;
+    while(temp3->next != NULL) temp3 = temp3->next;
+    temp3->next = new_student;
 
     save_students_to_file(*studentPtr);
     printf(GREEN"Student added successfully\n"RESET);
