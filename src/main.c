@@ -30,15 +30,16 @@ int main(void) {
         sscanf(input,"%s",command);
 
         if(strcmp(command,"insert")==0) {
-            char *tokens[4];
-            int i = 0;
+            const int tokensCount = 4;
+            char *tokens[tokensCount];
+            int count = 0;
             char *ptr = strtok(input, " "); 
-            while(ptr && i < 4) {
-                tokens[i++] = ptr;
+            while(ptr && count < 4) {
+                tokens[count++] = ptr;
                 ptr = strtok(NULL, " ");
             }
 
-            if(i == 4) {
+            if(count == tokensCount) {
                 char *endptr;
                 id = strtol(tokens[1], &endptr, 10);
                 if(*endptr != '\0') {
