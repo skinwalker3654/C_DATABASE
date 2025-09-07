@@ -83,3 +83,31 @@ NOTES:
     and if two students have the same name or ID the program prints 
     or deletes the 1st of those two it finds, So we made insertion checking.
 
+-------------------------------------------------------------------------------
+
+FILE STRUCTURE:
+    C_DATABASE/
+        |-- .github/
+        |      |-- screenshot.png
+        |
+        |-- src/
+        |      |-- commands/
+        |      |      |-- database.c
+        |      |      |-- database.h
+        |      |      
+        |      |-- utils/
+        |      |      |-- utils.c
+        |      |      |-- utils.h
+        |      |
+        |      |-- executer.h
+        |      |-- executer.c
+        |      |-- main.c
+        |
+        |-- explanation/
+        |      |-- explain.txt
+        |
+        |-- README.md
+        |-- Makefile
+        |-- LICENSE
+
+-------------------------------------------------------------------------------
