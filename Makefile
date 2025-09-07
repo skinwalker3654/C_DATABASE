@@ -1,4 +1,4 @@
-SRC = src/main.c src/database.c
+SRC = src/main.c src/database.c src/executer/executer.c
 BIN = bin
 TAR = bin/main
 CC = gcc

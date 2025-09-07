@@ -271,7 +271,7 @@ void print_average_grade(Student_list *studentPtr) {
     float average_grade = sumGrade / find_students_count(studentPtr);
     printf(BOLD YELLOW"Students average grade is: %.2f\n"RESET,average_grade);
 }
-
+ 
 void help_show_commands() {
     printf(BOLD YELLOW"\nCommands:\n"RESET);
     printf(BOLD YELLOW"  insert <id> <name> <grade>   | Adds a student to the database\n"RESET);
