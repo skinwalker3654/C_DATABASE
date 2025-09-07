@@ -1,4 +1,3 @@
-#include "../database.h"
 #include "executer.h"
 #include <stdio.h>
 #include <stdlib.h>

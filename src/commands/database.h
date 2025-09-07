@@ -13,20 +13,15 @@ typedef struct Student_list {
     struct Student_list *next;
 } Student_list;
 
-/*UTIL FUNCTIONS*/
-void save_students_to_file(Student_list *studentPtr);
-void load_students_from_file(Student_list **studentPtr);
-void sort_students_by_id(Student_list *studentPtr);
-void free_list_nodes(Student_list *studentPtr);
+#include "../utils/utils.h"
 
-/*MAIN FUNCTIONS*/
+/*FUNCTIONS*/
 void add_student_to_list(Student_list **studentPtr,int id,char *name,float grade);
 int delete_student_from_list(Student_list **studentPtr,int id);
 void print_student_list(Student_list *studentPtr);
 void edit_student_grade(Student_list *studentPtr,int id,float newGrade);
 int find_students_count(Student_list *studentPtr);
 void print_average_grade(Student_list *studentPtr);
-void help_show_commands(void);
 
 /*COLORS*/
 #define RESET   "\033[0m"

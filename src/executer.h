@@ -1,7 +1,9 @@
 #ifndef EXECUTER_H
 #define EXECUTER_H
 
-#include "../database.h"
+#include "commands/database.h"
+#include "utils/utils.h"
+
 void execute_commands(char *input,Student_list **studenPtr);
 
 #endif
