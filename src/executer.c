@@ -75,7 +75,9 @@ void execute_commands(char *input, Student_list **nodes) {
                 printf(RED"Error: Invalid ID\n"RESET);
                 return;
             }
+            
             delete_student_from_list(nodes,id);
+            return;
         } else {
             printf(RED"\nError: Invalid arguments passed\n"RESET);
             printf(RED"Type: 'help' for more details\n\n"RESET);
