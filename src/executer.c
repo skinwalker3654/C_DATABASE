@@ -4,7 +4,7 @@
 #include <string.h>
 
 void execute_commands(char *input, Student_list **nodes) {
-   char command[20];
+    char command[20];
     char name[STUDENT_NAME_SIZE];
     float grade;
     int id;
