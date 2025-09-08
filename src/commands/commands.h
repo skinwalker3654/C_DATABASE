@@ -13,8 +13,6 @@ typedef struct Student_list {
     struct Student_list *next;
 } Student_list;
 
-#include "../utils/utils.h"
-
 /*FUNCTIONS*/
 void add_student_to_list(Student_list **studentPtr,int id,char *name,float grade);
 int delete_student_from_list(Student_list **studentPtr,int id);
