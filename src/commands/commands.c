@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "database.h"
+#include "commands.h"
 #include <string.h>
 
 /*MAIN FUNCTIONS*/
