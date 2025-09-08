@@ -1,7 +1,8 @@
 # Student Management System (C)
 
 A cli database like tool for managing students in C
-It support **CROUD OPARATIONS** (Create, Read, Update, Delete) with saving on a file
+It support **CROUD OPARATIONS**
+(Insert, Update, Delete) with saving on a file
 
 ---
 
