@@ -4,8 +4,8 @@
 #include <string.h>
 
 void execute_commands(char *input, Student_list **nodes) {
-    char command[20];
-    char name[50];
+   char command[20];
+    char name[STUDENT_NAME_SIZE];
     float grade;
     int id;
 
@@ -15,9 +15,10 @@ void execute_commands(char *input, Student_list **nodes) {
     if(strcmp(command,"insert")==0) {
         const int tokensCount = 4;
         char *tokens[tokensCount];
+
         int count = 0;
         char *ptr = strtok(input, " ");
-        while(ptr && count < 4) {
+        while(ptr != NULL) {
             tokens[count++] = ptr;
             ptr = strtok(NULL, " ");
         }
@@ -38,9 +39,8 @@ void execute_commands(char *input, Student_list **nodes) {
                 return;
             }
 
-            strncpy(name, tokens[2], sizeof(name));
+            strncpy(name,tokens[2],sizeof(name));
             name[sizeof(name)-1] = '\0';
-
             add_student_to_list(nodes, id, name, grade);
         } else {
             printf(RED"\nError: Invalid arguments passed\n"RESET);
@@ -48,38 +48,58 @@ void execute_commands(char *input, Student_list **nodes) {
         }
     }
     else if(strcmp(command,"delete")==0) {
-        char *arg = input + strlen("delete");
-        while(*arg == ' ' || *arg == '\t') arg++;
+        const int tokensCount = 2;
+        char *tokens[tokensCount];
 
-        if(*arg == '\0') {
+        char *token = strtok(input," ");
+        int count = 0;
+        while(token != NULL) {
+            tokens[count++] = token;
+            token = strtok(NULL," ");
+        }
+
+        if(count == 1) {
             if(*nodes == NULL) {
                 printf(RED"Error: Student list is empty\n"RESET);
                 return;
+            } else {
+                free_list_nodes(*nodes);
+                *nodes = NULL;
+                printf(GREEN"Students deleted successfully\n"RESET);
+                return;
             }
-            free_list_nodes(*nodes);
-            *nodes = NULL;
-            save_students_to_file(*nodes);
-            printf(GREEN"Students deleted successfully\n"RESET);
-        }
-        else if(sscanf(arg,"%d",&id)==1) {
-            if(delete_student_from_list(nodes,id)!=0) return;
-            printf(GREEN"Student deleted successfully\n"RESET);
-        }
-        else {
+        } else if(count == 2) {
+            char *endPtr;
+            id = strtol(tokens[1],&endPtr,10);
+            if(*endPtr != '\0') {
+                printf(RED"Error: Invalid ID\n"RESET);
+                return;
+            }
+            delete_student_from_list(nodes,id);
+        } else {
             printf(RED"\nError: Invalid arguments passed\n"RESET);
             printf(RED"Type: 'help' for more details\n\n"RESET);
         }
     }
     else if(strcmp(command,"select")==0) {
-        char *arg = input + strlen("select");
-        while(*arg == ' ' || *arg == '\t') arg++;
+        const int tokensCount = 3;
+        char *tokens[tokensCount];
 
-        if(*arg == '\0') {
+        char *token = strtok(input," ");
+        int count = 0;
+        while(token != NULL) {
+            tokens[count++] = token;
+            token = strtok(NULL," ");
+        }
+
+        if(count == 1) {
             sort_students_by_id(*nodes);
             print_student_list(*nodes);
-        }
-        else if(sscanf(arg,"%s",name)==1) {
+        } else if(count == 2) {
             Student_list *tempPtr = *nodes;
+            strcpy(name,tokens[1]);
+            name[sizeof(name)-1] = '\0';
+
             while(tempPtr != NULL) {
                 if(strcmp(tempPtr->name,name)==0) {
                     printf(BOLD YELLOW"ID: %d"RESET,tempPtr->id);
@@ -91,20 +111,43 @@ void execute_commands(char *input, Student_list **nodes) {
                 }
                 tempPtr = tempPtr->next;
             }
+
             if(tempPtr == NULL) {
                 printf(RED"Error: Student not found\n"RESET);
                 return;
             }
-        }
-        else {
+        } else {
             printf(RED"\nError: Invalid arguments passed\n"RESET);
             printf(RED"Type: 'help' for more details\n\n"RESET);
         }
     }
     else if(strcmp(command,"update")==0) {
-        float newGrade;
-        if(sscanf(input,"update %d %f",&id,&newGrade)==2) {
-            edit_student_grade(*nodes,id,newGrade);
+        const int tokensCount = 3; 
+        char *tokens[tokensCount];
+
+        char *token = strtok(input," ");
+        int count = 0;
+        while(token != NULL) {
+            tokens[count++] = token;
+            token = strtok(NULL," ");
+        }
+
+        if(count == tokensCount) {
+            char *endPtr;
+            id = strtol(tokens[1],&endPtr,10);
+            if(*endPtr != '\0') {
+                printf(RED"Error: Invalid ID\n"RESET);
+                return;
+            }
+
+            float new_grade = strtof(tokens[2],&endPtr);
+            if(*endPtr != '\0') {
+                printf(RED"Error: Invalid grade\n"RESET);
+                return;
+            } 
+
+            edit_student_grade(*nodes,id,new_grade);
+            return;
         } else {
             printf(RED"\nError: Invalid arguments passed\n"RESET);
             printf(RED"Type: 'help' for more details\n\n"RESET);

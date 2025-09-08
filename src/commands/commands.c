@@ -74,6 +74,7 @@ int delete_student_from_list(Student_list **studentPtr,int id) {
         *studentPtr = temp->next;
         free(temp);
         save_students_to_file(*studentPtr);
+        printf(GREEN"Student deleted successfully\n"RESET);
         return 0;
     }
 
@@ -89,7 +90,10 @@ int delete_student_from_list(Student_list **studentPtr,int id) {
 
     prev->next = temp->next;
     free(temp);
+
     save_students_to_file(*studentPtr);
+    printf(GREEN"Student deleted successfully\n"RESET);
+
     return 0;
 }
 
@@ -126,7 +130,7 @@ void edit_student_grade(Student_list *studentPtr,int id,float newGrade) {
     while(studentPtr != NULL) {
         if(studentPtr->id == id) {
             studentPtr->grade = newGrade;
-            printf(GREEN"Student grade updated successfully\n"RESET);
+            printf(GREEN"Students grade updated successfully\n"RESET);
             save_students_to_file(head);
             return;
         }
