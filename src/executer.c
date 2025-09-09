@@ -164,6 +164,11 @@ void execute_commands(char *input, Student_list **nodes) {
     else if(strcmp(input,"average")==0) {
         print_average_grade(*nodes);
     }
+    else if(strcmp(input,"max")==0) {
+        find_max_student(*nodes);
+    } else if(strcmp(input,"min")==0) {
+        find_min_student(*nodes);
+    }
     else if(strcmp(input,"help")==0) {
         help_show_commands();
     }

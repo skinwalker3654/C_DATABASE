@@ -3,7 +3,7 @@ so you can store, delete, change or count students in the list.
 
 -------------------------------------------------------------------------------
 
-COMMANDS: insert , delete , select , update , exit , cls , count , average , help
+COMMANDS: insert , delete , select , update , exit , cls , count , average , max , min , help
 
 -------------------------------------------------------------------------------
 
@@ -30,6 +30,10 @@ COMMANDS: insert , delete , select , update , exit , cls , count , average , hel
         (average) -> This command shows you the average grade
                      of all the students in the list
 
+        (max) -> This cmmand finds the student with the best grade grade;
+
+        (min) -> This commands finds the student with the worst grade;
+
         (help) -> This command shows you a panel of all the commands
                   and explain them shortly
 
@@ -55,14 +59,18 @@ COMMANDS: insert , delete , select , update , exit , cls , count , average , hel
 
         (average) -> "average" And after you write this you can see the average grade
 
+        (max) -> "max" Just write that and you see whats student is better
+
+        (min) -> "min" And like this you can see the worst student
+
         (help) -> "help" If you type this command you will see 
                          all the commands without reading this documentation
 
 -------------------------------------------------------------------------------
 
 NOTES: 
-    CTRL + S signal is handed so the programs frees 
-            the memory even if you dint get to the exit.
+    CTRL + C signal is handed so the programs frees 
+             the memory even if you dint get to the exit.
 
     The program uses Linked list for adding students
     so you can add as many as you want.

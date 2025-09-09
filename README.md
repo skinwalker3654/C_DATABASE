@@ -13,6 +13,8 @@ It support **CROUD OPARATIONS**
 - **Delete** all students **or** deleted one by id
 - **Count** all students in the list
 - **Average** find the average grade of students
+- **Min** find the student with the minimum grade
+- **Max** find the student with the maximum grade
 - Handls ctr+c signal in case you exit before Memory gets freed
 - Auto save changes in `database.txt`
 - ANSI COLORS

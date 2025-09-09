@@ -20,6 +20,8 @@ void print_student_list(Student_list *studentPtr);
 void edit_student_grade(Student_list *studentPtr,int id,float newGrade);
 int find_students_count(Student_list *studentPtr);
 void print_average_grade(Student_list *studentPtr);
+void find_min_student(Student_list *studentPtr);
+void find_max_student(Student_list *studentPtr);
 
 /*COLORS*/
 #define RESET   "\033[0m"

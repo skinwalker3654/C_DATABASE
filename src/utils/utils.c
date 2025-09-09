@@ -116,6 +116,8 @@ void help_show_commands() {
     printf(BOLD YELLOW"  average                      | Prints students average grade\n"RESET);
     printf(BOLD YELLOW"  count                        | Prints student count\n"RESET);
     printf(BOLD YELLOW"  cls                          | Clears the terminal\n"RESET);
+    printf(BOLD YELLOW"  min                          | Finds the student with the minimum grade\n"RESET);
+    printf(BOLD YELLOW"  max                          | Finds the student with the maximum grade\n"RESET);
     printf(BOLD YELLOW"  help                         | Shows this pannel\n"RESET);
     printf(BOLD YELLOW"  exit                         | Exits the program\n\n"RESET);
 }

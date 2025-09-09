@@ -171,4 +171,53 @@ void print_average_grade(Student_list *studentPtr) {
     float average_grade = sumGrade / find_students_count(studentPtr);
     printf(BOLD YELLOW"Students average grade is: %.2f\n"RESET,average_grade);
 }
- 
+
+void find_max_student(Student_list *studentPtr) {
+    if(studentPtr == NULL) {
+        printf(RED"Error: Student list is empty\n"RESET);
+        return;
+    }
+    
+    Student_list *temp = studentPtr;
+    Student_list *student = studentPtr;
+    float max_grade = temp->grade;
+    while(temp != NULL) {
+        if(temp->grade > max_grade) {
+            max_grade = temp->grade;
+            student = temp;
+        }
+        temp = temp->next;
+    }
+
+    printf("\nStudent with the maximum grade:\n");
+    printf(BOLD YELLOW"Name: %s"RESET,student->name);
+    printf(" | ");
+    printf(BOLD YELLOW"Grade: %.2f"RESET,max_grade);
+    printf(" | ");
+    printf(BOLD YELLOW"ID: %d\n\n"RESET,student->id);
+}
+
+void find_min_student(Student_list *studentPtr) {
+    if(studentPtr == NULL) {
+        printf(RED"Error: Student list is empty\n"RESET);
+        return;
+    }
+
+    Student_list *temp = studentPtr;
+    Student_list *student = studentPtr;
+    float min_grade = temp->grade;
+    while(temp != NULL) {
+        if(temp->grade < min_grade) {
+            min_grade = temp->grade;
+            student = temp;
+        }
+        temp = temp->next;
+    }
+
+    printf("\nStudent with the minimum grade:\n");
+    printf(BOLD YELLOW"Name: %s"RESET,student->name);
+    printf(" | ");
+    printf(BOLD YELLOW"Grade: %.2f"RESET,min_grade);
+    printf(" | ");
+    printf(BOLD YELLOW"ID: %d\n\n"RESET,student->id);
+}
