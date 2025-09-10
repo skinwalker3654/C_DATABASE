@@ -158,8 +158,16 @@ void execute_commands(char *input, Student_list **nodes) {
     else if(strcmp(input,"count")==0) {
         int studentCount = find_students_count(*nodes);
         if(studentCount == -1) return;
-        else if(studentCount == 1) printf(BOLD YELLOW"There is %d student in the list\n"RESET,studentCount);
-        else if(studentCount > 1) printf(BOLD YELLOW"There are %d students in the list\n"RESET,studentCount);
+        else if(studentCount == 1) {
+            printf(BOLD YELLOW"There is"RESET);
+            printf(GREEN" %d "RESET,studentCount);
+            printf(BOLD YELLOW"student in the list\n"RESET); 
+        }
+        else if(studentCount > 1) {  
+            printf(BOLD YELLOW"There are"RESET);
+            printf(GREEN" %d "RESET,studentCount);
+            printf(BOLD YELLOW"students in the list\n"RESET);
+        }
     }
     else if(strcmp(input,"average")==0) {
         print_average_grade(*nodes);

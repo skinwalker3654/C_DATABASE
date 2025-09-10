@@ -179,7 +179,8 @@ void print_average_grade(Student_list *studentPtr) {
     }
 
     float average_grade = sumGrade / find_students_count(studentPtr);
-    printf(BOLD YELLOW"Students average grade is: %.2f\n"RESET,average_grade);
+    printf(BOLD YELLOW"Students average grade is:"RESET); 
+    printf(GREEN" %.2f\n"RESET,average_grade);
 }
 
 void find_max_student(Student_list *studentPtr) {
