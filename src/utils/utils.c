@@ -77,7 +77,7 @@ void load_students_from_file(Student_list **studentPtr) {
 void sort_students_by_id(Student_list *studentPtr) {
     if(studentPtr == NULL) return;
 
-    int swapped;
+    int swapped = 1;
     Student_list *ptr1;
     Student_list *lptr = NULL;
 
