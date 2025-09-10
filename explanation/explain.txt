@@ -99,6 +99,9 @@ FILE STRUCTURE:
         |      |-- screenshot.png
         |
         |-- src/
+        |      |-- colors/
+        |      |      |-- colors.h
+        |      |
         |      |-- commands/
         |      |      |-- database.c
         |      |      |-- database.h
@@ -107,9 +110,13 @@ FILE STRUCTURE:
         |      |      |-- utils.c
         |      |      |-- utils.h
         |      |
-        |      |-- executer.h
-        |      |-- executer.c
-        |      |-- main.c
+        |      |-- executer/
+        |      |      |-- executer.h
+        |      |      |-- executer.c
+        |      |
+        |      |-- MAIN.c
+        |      
+        |
         |
         |-- explanation/
         |      |-- explain.txt

@@ -1,4 +1,4 @@
-SRC = src/main.c src/commands/commands.c src/executer.c src/utils/utils.c
+SRC = src/MAIN.c src/commands/commands.c src/executer/executer.c src/utils/utils.c src/colors/colors.h
 BIN = bin
 TAR = bin/main
 CC = gcc
