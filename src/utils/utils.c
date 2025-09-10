@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 
+/*UTIL FUNCTIONS*/
 void save_students_to_file(Student_list *studentPtr) {
     FILE *file = fopen("bin/database.txt","w");
     if(!file) {
