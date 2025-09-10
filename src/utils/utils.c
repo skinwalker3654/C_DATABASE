@@ -33,7 +33,7 @@ void free_list_nodes(Student_list *studentPtr) {
 void load_students_from_file(Student_list **studentPtr) {
     FILE *file = fopen("bin/database.txt","r");
     if(!file) {
-        printf("There is no data to load\n");
+        printf(BOLD YELLOW"There is no data to load\n"RESET);
         return;
     }
 

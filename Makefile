@@ -8,7 +8,6 @@ all: $(TAR)
 $(BIN):
 	@echo "creating bin folder..."
 	mkdir -p $(BIN)
-	@touch bin/database.txt 
 
 $(TAR): $(SRC) | $(BIN)
 	@echo "compiling the program..."
