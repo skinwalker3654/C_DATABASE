@@ -102,16 +102,27 @@ void print_student_list(Student_list *studentPtr) {
         return;
     }
 
-    printf(BOLD BLUE"\nID\tName\t\tGrade\n"RESET);
+    printf("\n+------------------------------+\n");
+    printf("| ");
+    printf(BOLD BLUE"ID\t Name\t\t Grade"RESET);
+    printf(" |\n");
+    printf("+------------------------------+\n");
     while(studentPtr != NULL) {
-        printf("%d\t%-10s\t%.2f\n"
+        printf("| %d\t %-10s\t"
                 ,studentPtr->id
-                ,studentPtr->name
-                ,studentPtr->grade);
+                ,studentPtr->name);
+        if(studentPtr->grade < 10) { 
+            printf("  %.2f |\n",studentPtr->grade); 
+        } else if(studentPtr->grade < 100) {
+            printf(" %.2f |\n",studentPtr->grade);
+        } else {
+            printf("%.2f |\n",studentPtr->grade);
+        }
+
         studentPtr = studentPtr->next;
     }
 
-    printf("\n");
+    printf("+------------------------------+\n\n");
 }
 
 void edit_student_grade(Student_list *studentPtr,int id,float newGrade) {
