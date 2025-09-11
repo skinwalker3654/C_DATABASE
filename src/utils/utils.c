@@ -32,10 +32,7 @@ void free_list_nodes(Student_list *studentPtr) {
 
 void load_students_from_file(Student_list **studentPtr) {
     FILE *file = fopen("bin/database.txt","r");
-    if(!file) {
-        printf(BOLD YELLOW"There is no data to load\n"RESET);
-        return;
-    }
+    if(!file) { return; }
 
     free_list_nodes(*studentPtr);
     *studentPtr = NULL; 
@@ -71,7 +68,6 @@ void load_students_from_file(Student_list **studentPtr) {
     }
 
     fclose(file);
-    printf(BOLD YELLOW"Loading data...\n"RESET);
 }
 
 void sort_students_by_id(Student_list *studentPtr) {

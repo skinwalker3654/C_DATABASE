@@ -66,6 +66,7 @@ void execute_commands(char *input, Student_list **nodes) {
                 free_list_nodes(*nodes);
                 *nodes = NULL;
                 printf(GREEN"Students deleted successfully\n"RESET);
+                save_students_to_file(*nodes);
                 return;
             }
         } else if(count == 2) {
