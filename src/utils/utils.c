@@ -108,8 +108,8 @@ void help_show_commands() {
     printf(BOLD YELLOW"\nCommands:\n"RESET);
     printf(BOLD YELLOW"  insert <id> <name> <grade>   | Adds a student to the database\n"RESET);
     printf(BOLD YELLOW"  update <id> <new_grade>      | Updates students grade by the ID\n"RESET);
-    printf(BOLD YELLOW"  delete / delete <id>         | Deletes all students / deletes one student by the ID\n"RESET);
-    printf(BOLD YELLOW"  select / select <name>       | Prints all the students / Prints one student by the name\n"RESET);
+    printf(BOLD YELLOW"  delete OR delete <id>        | Deletes all students OR deletes one student by the ID\n"RESET);
+    printf(BOLD YELLOW"  SELECT HELP                  | Shows you every usage of the <select> command\n"RESET);
     printf(BOLD YELLOW"  average                      | Prints students average grade\n"RESET);
     printf(BOLD YELLOW"  count                        | Prints student count\n"RESET);
     printf(BOLD YELLOW"  cls                          | Clears the terminal\n"RESET);

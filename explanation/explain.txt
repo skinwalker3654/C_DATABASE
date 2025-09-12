@@ -14,8 +14,9 @@ COMMANDS: insert , delete , select , update , exit , cls , count , average , max
         (delete) -> This command deletes a student from the database
                     OR deletes every student if you use it correctly. (Explained in SYNTAX)
 
-        (select) -> This command takes one student and prints the information
-                    of that student OR you can print every student the database has. (Explained in SYNTAX)
+        (select) -> 1 This command takes one student and prints the information
+                    of that student. 2 you can print every student the database has. 
+                    3 you can print information of every student with grade > < = to what you passed (Explained in SYNTAX)
         
         (update) -> This command changes a students grade
 
@@ -45,8 +46,10 @@ COMMANDS: insert , delete , select , update , exit , cls , count , average , max
         (delete) -> "delete" OR "delete <id>" The 1st use deletes all the students
                                               but the 2nd use deletes the student who has the <id> you passed
 
-        (select) -> "select" OR "select <name>" The 1st use prints all the students info
-                                                but the 2nd use prints only students <name> info
+        (select) -> "select", "select <name>", "select <op> <grade>" 
+                                                The 1st use prints all the students info
+                                                the 2nd use prints only students <name> info
+                                                the 3rd use prints all the students with <op> <grade>
 
         (update) -> "update <id> <new_grade>" It find the student with the <id> you passed and changes 
                                               his grade with the <new_grade>

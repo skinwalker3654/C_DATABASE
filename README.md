@@ -8,7 +8,7 @@ It support **CROUD OPARATIONS**
 
 ## Features
 - **Insert** new students (ID, Name, Grade)
-- **Select** all students **or** select one by name
+- **Select** all students , select one student by name **OR** print all students with specific grade operation
 - **Edit** the grade of a student by using id
 - **Delete** all students **or** deleted one by id
 - **Count** all students in the list
