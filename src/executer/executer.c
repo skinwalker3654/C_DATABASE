@@ -148,7 +148,7 @@ void execute_commands(char *input, Student_list **nodes) {
                 }
 
                 if(!foundIdx) {
-                    printf(RED"Error: Students with grade > %.2f, not found\n"RESET,number);
+                    printf(RED"Error: Students with grade > then %.2f, not found\n"RESET,number);
                     return;
                 }
 
@@ -235,6 +235,11 @@ void execute_commands(char *input, Student_list **nodes) {
                     scan = scan->next;
                 }
 
+                if(!foundIdx) {
+                    printf(RED"Error: Students with grade = to %.2f, not found\n"RESET,number);
+                    return;
+                }
+
                 printf(BOLD YELLOW"\nStudents with grade = to %.2f:\n"RESET,number);
                 printf("\n+------------------------------+\n");
                 printf("| ");
@@ -260,7 +265,7 @@ void execute_commands(char *input, Student_list **nodes) {
                 printf("+------------------------------+\n\n");
             } else {
                 printf(RED"\nError: Invalid operation\n"RESET);
-                printf(RED"Valid operations: '>', '<', '='\n\n"RESET);
+                printf(RED"Type: 'SELECT HELP' for more details\n\n"RESET);
             }
         } else {
             printf(RED"\nError: Invalid arguments passed\n"RESET);
