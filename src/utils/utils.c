@@ -118,3 +118,11 @@ void help_show_commands() {
     printf(BOLD YELLOW"  help                         | Shows this pannel\n"RESET);
     printf(BOLD YELLOW"  exit                         | Exits the program\n\n"RESET);
 }
+
+void help_show_select_command() {
+    printf(BOLD YELLOW"\n3 usages:\n"RESET);
+    printf(BOLD YELLOW"  select                | Prints all the students in the list\n"RESET);
+    printf(BOLD YELLOW"  select <name>         | Prints the student with this name\n"RESET);
+    printf(BOLD YELLOW"  select <op> <grade>   | Prints students with <op> <grade>\n"RESET);
+    printf(BOLD YELLOW"\n\nAvailable OP: '>', '<', '='\n\n"RESET);
+}
