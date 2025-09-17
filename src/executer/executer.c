@@ -78,7 +78,113 @@ void execute_commands(char *input, Student_list **nodes) {
             }
             
             delete_student_from_list(nodes,id);
+            printf(GREEN"Student deleted successfully\n"RESET);
             return;
+        } else if(count == 3) {
+            char *endPtr;
+            float number = strtof(tokens[2],&endPtr);
+            if(*endPtr != '\0') {
+                printf(RED"Error: Invalid number\n"RESET);
+                return;
+            }
+
+            char operation[2];
+            strcpy(operation,tokens[1]);
+
+            if(strcmp(operation,">")==0) {
+                Student_list *temp = *nodes;
+                if(temp == NULL) {
+                    printf(RESET"Error: Student list is empty\n"RESET);
+                    return;
+                }
+                
+                Student_list *scan = *nodes;
+                int foundIdx = 0;
+                while(scan != NULL) {
+                    if(scan->grade > number) {
+                        foundIdx = 1;
+                        break;
+                    }
+                    scan = scan->next;
+                }
+
+                if(!foundIdx) {
+                    printf(RED"Error: Student with grade > then %.2f, not found\n"RESET,number);
+                    return;
+                }
+
+                while(temp != NULL) {
+                    if(temp->grade > number) 
+                        delete_student_from_list(nodes,temp->id);
+                    temp = temp->next;
+                }
+
+                printf(GREEN"Students with grade > then %.2f, deleted successfully\n"RESET,number);
+                return;
+            } else if(strcmp(operation,"<")==0) {
+                Student_list *temp = *nodes;
+                if(temp == NULL) {
+                    printf(RED"Error: Student list is empty\n"RESET);
+                    return;
+                }
+
+                int foundIdx = 0;
+                Student_list *scan = *nodes;
+                while(scan != NULL) {
+                    if(scan->grade < number) {
+                        foundIdx = 1;
+                        break;
+                    }
+                    scan = scan->next;
+                }
+
+                if(!foundIdx) {
+                    printf(RED"Error: Students with grade < then %.2f, not found\n"RESET,number);
+                    return;
+                }
+
+                while(temp != NULL) {
+                    if(temp->grade < number) 
+                        delete_student_from_list(nodes,temp->id);
+                    temp = temp->next;
+                }
+
+                printf(GREEN"Students with grade < then %.2f, deleted successfully\n"RESET,number);
+                return;
+            } else if(strcmp(operation,"=")==0) {
+                Student_list *temp = *nodes;
+                if(temp == NULL) {
+                    printf(RED"Error: Student list is empty\n"RESET);
+                    return;
+                }
+
+                int foundIdx = 0;
+                Student_list *scan = *nodes;
+                while(scan != NULL) {
+                    if(scan->grade == number) {
+                        foundIdx = 1;
+                        break;
+                    }
+                    scan = scan->next;
+                }
+
+                if(!foundIdx) {
+                    printf(RED"Error: Students with grade = to %.2f, not found\n"RESET,number);
+                    return;
+                }
+
+                while(temp != NULL) {
+                    if(temp->grade == number) 
+                        delete_student_from_list(nodes,temp->id);
+                    temp = temp->next; 
+                }
+
+                printf(GREEN"Students with grade = to %.2f, deleted successfully\n"RESET,number);
+                return;
+            } else {
+                printf(RED"\nError: Invalid operation\n"RESET);
+                printf(RED"Type: 'DELETE HELP' for more details\n\n"RESET);
+            }
         } else {
             printf(RED"\nError: Invalid arguments passed\n"RESET);
             printf(RED"Type: 'help' for more details\n\n"RESET);
@@ -329,6 +435,9 @@ void execute_commands(char *input, Student_list **nodes) {
     }
     else if(strcmp(input,"SELECT HELP")==0) {
         help_show_select_command();
+    }
+    else if(strcmp(input,"DELETE HELP")==0) {
+        help_show_delete_command();
     }
     else if(strcmp(input,"help")==0) {
         help_show_commands();

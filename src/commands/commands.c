@@ -62,10 +62,10 @@ void add_student_to_list(Student_list **studentPtr,int id,char *name,float grade
     printf(GREEN"Student added successfully\n"RESET);
 }
 
-int delete_student_from_list(Student_list **studentPtr,int id) {
+void delete_student_from_list(Student_list **studentPtr,int id) {
     if(*studentPtr == NULL) {
         printf(RED"Error: Student list is empty\n"RESET);
-        return -1;
+        return;
     }
 
     Student_list *temp = *studentPtr, *prev = NULL;
@@ -73,8 +73,7 @@ int delete_student_from_list(Student_list **studentPtr,int id) {
         *studentPtr = temp->next;
         free(temp);
         save_students_to_file(*studentPtr);
-        printf(GREEN"Student deleted successfully\n"RESET);
-        return 0;
+        return;
     }
 
     while(temp != NULL && temp->id != id) {
@@ -84,16 +83,13 @@ int delete_student_from_list(Student_list **studentPtr,int id) {
 
     if(temp == NULL) {
         printf(RED"Error: Student not found in the list\n"RESET);
-        return -1;
+        return;
     }
 
     prev->next = temp->next;
     free(temp);
 
     save_students_to_file(*studentPtr);
-    printf(GREEN"Student deleted successfully\n"RESET);
-
-    return 0;
 }
 
 void print_student_list(Student_list *studentPtr) {

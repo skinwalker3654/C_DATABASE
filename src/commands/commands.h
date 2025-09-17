@@ -15,7 +15,7 @@ typedef struct Student_list {
 
 /*FUNCTIONS*/
 void add_student_to_list(Student_list **studentPtr,int id,char *name,float grade);
-int delete_student_from_list(Student_list **studentPtr,int id);
+void delete_student_from_list(Student_list **studentPtr,int id);
 void print_student_list(Student_list *studentPtr);
 void edit_student_grade(Student_list *studentPtr,int id,float newGrade);
 int find_students_count(Student_list *studentPtr);
