@@ -182,7 +182,7 @@ void execute_commands(char *input, Student_list **nodes) {
                 printf(GREEN"Students with grade = to %.2f, deleted successfully\n"RESET,number);
                 return;
             } else {
-                printf(RED"\nError: Invalid operation\n"RESET);
+                printf(RED"\nError: Invalid operation '%s'\n"RESET,operation);
                 printf(RED"Type: 'DELETE HELP' for more details\n\n"RESET);
             }
         } else {
@@ -370,7 +370,7 @@ void execute_commands(char *input, Student_list **nodes) {
 
                 printf("+------------------------------+\n\n");
             } else {
-                printf(RED"\nError: Invalid operation\n"RESET);
+                printf(RED"\nError: Invalid operation '%s'\n"RESET,operation);
                 printf(RED"Type: 'SELECT HELP' for more details\n\n"RESET);
             }
         } else {
