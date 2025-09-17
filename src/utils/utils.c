@@ -130,7 +130,7 @@ void help_show_select_command() {
 void help_show_delete_command() {
     printf(BOLD YELLOW"\n3 usages:\n"RESET);
     printf(BOLD YELLOW"  delete                | Deletes all the students in the list\n"RESET);
-    printf(BOLD YELLOW"  delete <id>           | Deletes the student with this id\n"RESET);
-    printf(BOLD YELLOW"  delete <op> <grade>   | Deletes studetns with <op> <grade>\n"RESET);
+    printf(BOLD YELLOW"  delete <id>           | Deletes the student with this ID\n"RESET);
+    printf(BOLD YELLOW"  delete <op> <grade>   | Deletes students with <op> <grade>\n"RESET);
     printf(BOLD YELLOW"\n\nAvailable OP: '>', '<', '='\n\n"RESET);
 }
