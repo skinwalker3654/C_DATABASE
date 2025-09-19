@@ -18,6 +18,7 @@ int main(void) {
     load_students_from_file(&nodes);
 
     printf(BOLD YELLOW"Type 'help' to see available commands\n\n"RESET);
+    
     while(1) {
         printf(CYAN">> "RESET);
         fgets(input,sizeof(input),stdin);
