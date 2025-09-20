@@ -70,6 +70,11 @@ void execute_commands(char *input, Student_list **nodes) {
                 return;
             }
         } else if(count == 2) {
+            if(*nodes == NULL) {
+                printf(RED"Error: Student list is empty\n"RESET);
+                return;
+            }
+
             char *endPtr;
             id = strtol(tokens[1],&endPtr,10);
             if(*endPtr != '\0') {

@@ -246,7 +246,7 @@ void delete_operations(Student_list **nodes,char *operation,float number) {
     if(strcmp(operation,">")==0) {
         Student_list *temp = *nodes;
         if(temp == NULL) {
-            printf(RESET"Error: Student list is empty\n"RESET);
+            printf(RED"Error: Student list is empty\n"RESET);
             return;
         }
                 
