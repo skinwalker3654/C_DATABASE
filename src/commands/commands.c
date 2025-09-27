@@ -17,7 +17,7 @@ void add_student_to_list(Student_list **studentPtr,int id,char *name,float grade
     }
 
     if(id < MIN_STUDENT_IDNUM) {
-        printf(RED"Error: Invalid ID. It must be a positive number\n"RESET);
+        printf(RED"Error: Invalid ID, it must be a positive number\n"RESET);
         free(new_student);
         return;
     }
