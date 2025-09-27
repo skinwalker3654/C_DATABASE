@@ -123,7 +123,7 @@ void select_operations(Student_list **nodes,char *operation,float number) {
         }
 
         if(!foundIdx) {
-            printf(RED"Error: Students with grade > then %.2f, not found\n"RESET,number);
+            printf(RED"Error: Students with grade > then %.2f not found\n"RESET,number);
             return;
         }
 
@@ -166,7 +166,7 @@ void select_operations(Student_list **nodes,char *operation,float number) {
         }
 
         if(!foundIdx) {
-            printf(RED"Error: Students with grade < then %.2f, not found\n"RESET,number);
+            printf(RED"Error: Students with grade < then %.2f not found\n"RESET,number);
             return;
         }
 
@@ -210,7 +210,7 @@ void select_operations(Student_list **nodes,char *operation,float number) {
         }
 
         if(!foundIdx) {
-            printf(RED"Error: Students with grade = to %.2f, not found\n"RESET,number);
+            printf(RED"Error: Students with grade = to %.2f not found\n"RESET,number);
             return;
         }
 
@@ -261,7 +261,7 @@ void delete_operations(Student_list **nodes,char *operation,float number) {
         }
 
         if(!foundIdx) {
-            printf(RED"Error: Student with grade > then %.2f, not found\n"RESET,number);
+            printf(RED"Error: Student with grade > then %.2f not found\n"RESET,number);
             return;
         }
 
@@ -271,7 +271,7 @@ void delete_operations(Student_list **nodes,char *operation,float number) {
             temp = temp->next;
         }
 
-        printf(GREEN"Students with grade > then %.2f, deleted successfully\n"RESET,number);
+        printf(GREEN"Students with grade > then %.2f deleted successfully\n"RESET,number);
         return;
     } else if(strcmp(operation,"<")==0) {
         Student_list *temp = *nodes;
@@ -291,7 +291,7 @@ void delete_operations(Student_list **nodes,char *operation,float number) {
         }
 
         if(!foundIdx) {
-            printf(RED"Error: Students with grade < then %.2f, not found\n"RESET,number);
+            printf(RED"Error: Students with grade < then %.2f not found\n"RESET,number);
             return;
         }
 
@@ -301,7 +301,7 @@ void delete_operations(Student_list **nodes,char *operation,float number) {
             temp = temp->next;
         }
 
-        printf(GREEN"Students with grade < then %.2f, deleted successfully\n"RESET,number);
+        printf(GREEN"Students with grade < then %.2f deleted successfully\n"RESET,number);
         return;
     } else if(strcmp(operation,"=")==0) {
         Student_list *temp = *nodes;
@@ -321,7 +321,7 @@ void delete_operations(Student_list **nodes,char *operation,float number) {
         }
 
         if(!foundIdx) {
-            printf(RED"Error: Students with grade = to %.2f, not found\n"RESET,number);
+            printf(RED"Error: Students with grade = to %.2f not found\n"RESET,number);
             return;
         }
 
@@ -331,7 +331,7 @@ void delete_operations(Student_list **nodes,char *operation,float number) {
             temp = temp->next; 
         }
 
-        printf(GREEN"Students with grade = to %.2f, deleted successfully\n"RESET,number);
+        printf(GREEN"Students with grade = to %.2f deleted successfully\n"RESET,number);
         return;
     } else {
         printf(RED"\nError: Invalid operation '%s'\n"RESET,operation);
