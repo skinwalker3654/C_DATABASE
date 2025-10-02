@@ -49,7 +49,6 @@ void add_student_to_list(Student_list **studentPtr,int id,char *name,float grade
 
     if(*studentPtr == NULL) {
         *studentPtr = new_student;
-        save_students_to_file(*studentPtr);
         printf(GREEN"Student added succesfully\n"RESET);
         return;
     }
@@ -71,7 +70,6 @@ void delete_student_from_list(Student_list **studentPtr,int id) {
     if(temp != NULL && temp->id == id) {
         *studentPtr = temp->next;
         free(temp);
-        save_students_to_file(*studentPtr);
         return;
     }
 
