@@ -218,6 +218,7 @@ void execute_commands(char *input, Student_list **nodes) {
     }
     else if(strcmp(input,"exit")==0) {
         printf(BOLD BLUE"Exiting...\n"RESET);
+        save_students_to_file(*nodes);
         free_list_nodes(*nodes);
         exit(0);
     }

@@ -6,7 +6,7 @@
 /*MAIN FUNCTIONS*/
 void add_student_to_list(Student_list **studentPtr,int id,char *name,float grade) {
      if(grade < MIN_STUDENT_GRADE || grade > MAX_STUDENT_GRADE) {
-        printf(RED"Error: Invalid grade. Must be a number between 0-100\n"RESET);
+        printf(RED"Error: Invalid grade, it must be a number between 0-100\n"RESET);
         return;
     }
     
@@ -58,7 +58,6 @@ void add_student_to_list(Student_list **studentPtr,int id,char *name,float grade
     while(temp3->next != NULL) temp3 = temp3->next;
     temp3->next = new_student;
 
-    save_students_to_file(*studentPtr);
     printf(GREEN"Student added succesfully\n"RESET);
 }
 
@@ -88,8 +87,6 @@ void delete_student_from_list(Student_list **studentPtr,int id) {
 
     prev->next = temp->next;
     free(temp);
-
-    save_students_to_file(*studentPtr);
 }
 
 void print_student_list(Student_list *studentPtr) {
@@ -137,7 +134,6 @@ void edit_student_grade(Student_list *studentPtr,int id,float newGrade) {
         if(studentPtr->id == id) {
             studentPtr->grade = newGrade;
             printf(GREEN"Students grade updated succesfully\n"RESET);
-            save_students_to_file(head);
             return;
         }
         studentPtr = studentPtr->next;
