@@ -1,7 +1,7 @@
-#include "executer.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "executer.h"
 
 void execute_commands(char *input, Student_list **nodes) {
     char command[20];
