@@ -344,6 +344,7 @@ void help_show_commands() {
     printf(BOLD YELLOW"\nCommands:\n"RESET);
     printf(BOLD YELLOW"  insert <id> <name> <grade>   | Adds a student to the database\n"RESET);
     printf(BOLD YELLOW"  update <id> <new_grade>      | Updates students grade by the ID\n"RESET);
+    printf(BOLD YELLOW"  rename <id> <new_name>       | Updates the name of the student\n"RESET);
     printf(BOLD YELLOW"  DELETE HELP                  | Shows you every usage of <delete> command\n"RESET);
     printf(BOLD YELLOW"  SELECT HELP                  | Shows you every usage of <select> command\n"RESET);
     printf(BOLD YELLOW"  average                      | Prints students average grade\n"RESET);

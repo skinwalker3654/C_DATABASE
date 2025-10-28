@@ -3,7 +3,7 @@ so you can store, delete, change or count students in the list.
 
 -------------------------------------------------------------------------------
 
-COMMANDS: insert , delete , select , update , exit , cls , count , average , max , min , help
+COMMANDS: insert , delete , select , update , rename , exit , cls , count , average , max , min , help
 
 -------------------------------------------------------------------------------
 
@@ -19,7 +19,9 @@ COMMANDS: insert , delete , select , update , exit , cls , count , average , max
                     2 you can print every student the database has. 
                     3 you can print information of every student by grade '>' '<' '=' about what you passed (Explained in SYNTAX)
         
-        (update) -> This command changes a students grade
+        (update) -> This command changes the students grade
+
+        (rename) -> This command changes the students name
 
         (exit) -> This command exits the program
 
@@ -54,8 +56,11 @@ COMMANDS: insert , delete , select , update , exit , cls , count , average , max
                                               the 2nd use prints only the students <name> information
                                               the 3rd use prints all the students with <op> <grade>
 
-        (update) -> "update <id> <new_grade>" It find the student with the <id> you passed and changes 
-                                              his grade with the <new_grade>
+        (update) -> "update <id> <new_grade>" It finds the student with the <id> you passed and changes 
+                                              his grade into the <new_grade>
+
+        (rename) -> "rename <id> <new_name>" it finds the student with the <id> you passed and changes
+                                             his name into the <new_name> 
 
         (exit) -> "exit" Nothing special just exiting the program like that
 

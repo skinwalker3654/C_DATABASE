@@ -184,6 +184,32 @@ void execute_commands(char *input, Student_list **nodes) {
             printf(RED"Type: 'help' for more details\n\n"RESET);
         }
     }
+    else if(strcmp(command,"rename")==0) {
+        const int tokensCount = 3;
+        char *tokens[tokensCount];
+
+        char *token = strtok(input," ");
+        int count = 0;
+        while(token != NULL) {
+            tokens[count++] = token;
+            token = strtok(NULL," ");
+        }
+
+        if(count == tokensCount) {
+            char *endPtr;
+            id = strtol(tokens[1],&endPtr,10);
+            if(*endPtr != '\0') {
+                printf(RED"Error: Invalid ID\n"RESET);
+                return; 
+            }
+
+            edit_student_name(*nodes,id,tokens[2]);
+            return;
+        } else {
+            printf(RED"Error: Invalid arguments passed\n"RESET);
+            printf(RED"Type: 'help' for more details\n\n"RESET);
+        }
+    }
     else if(strcmp(input,"count")==0) {
         int studentCount = find_students_count(*nodes);
         if(studentCount == -1) return;

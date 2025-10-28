@@ -9,7 +9,7 @@ It support **CROUD OPARATIONS**
 ## Features
 - **Insert** new students (ID, Name, Grade)
 - **Select** all students , select one student by name **OR** print all students with specific grade operation
-- **Edit** the grade of a student by using id
+- **Edit** the grade of a student by using id **OR** the name
 - **Delete** all students , delete one student by ID **OR** delete all students with specific grade operation
 - **Count** all students in the list
 - **Average** find the average grade of students

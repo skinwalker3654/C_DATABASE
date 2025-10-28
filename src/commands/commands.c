@@ -99,9 +99,7 @@ void print_student_list(Student_list *studentPtr) {
     printf(" |\n");
     printf("+------------------------------+\n");
     while(studentPtr != NULL) {
-        printf("| %d\t %-10s\t"
-                ,studentPtr->id
-                ,studentPtr->name);
+        printf("| %d\t %-10s\t",studentPtr->id ,studentPtr->name);
         if(studentPtr->grade < 10) { 
             printf("  %.2f |\n",studentPtr->grade); 
         } else if(studentPtr->grade < 100) {
@@ -127,11 +125,28 @@ void edit_student_grade(Student_list *studentPtr,int id,float newGrade) {
         return;
     }
 
-    Student_list *head = studentPtr;
     while(studentPtr != NULL) {
         if(studentPtr->id == id) {
             studentPtr->grade = newGrade;
             printf(GREEN"Students grade updated succesfully\n"RESET);
+            return;
+        }
+        studentPtr = studentPtr->next;
+    }
+
+    printf(RED"Error: Student not found in the list\n"RESET);
+}
+
+void edit_student_name(Student_list *studentPtr,int id,char *newName) {
+    if(studentPtr == NULL) {
+        printf(RED"Error: Student list is empty\n"RESET);
+        return;
+    }
+    
+    while(studentPtr != NULL) {
+        if(studentPtr->id == id) {
+            strcpy(studentPtr->name,newName);
+            printf(GREEN"Students name updated succesfully\n"RESET);
             return;
         }
         studentPtr = studentPtr->next;
