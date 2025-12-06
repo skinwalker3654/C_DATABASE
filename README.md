@@ -15,6 +15,7 @@ It support **CROUD OPARATIONS**
 - **Average** find the average grade of students
 - **Min** find the student with the minimum grade
 - **Max** find the student with the maximum grade
+- **Rename** any students name from the list
 - Handls ctr+c signal in case you exit before Memory gets freed
 - Auto save changes in `database.txt`
 - ANSI COLORS

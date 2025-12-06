@@ -3,7 +3,7 @@ so you can store, delete, change or count students in the list.
 
 -------------------------------------------------------------------------------
 
-COMMANDS: insert , delete , select , update , rename , exit , cls , count , average , max , min , help
+COMMANDS: insert , delete , select , update , rename , version , exit , cls , count , average , max , min , help
 
 -------------------------------------------------------------------------------
 
@@ -30,6 +30,9 @@ COMMANDS: insert , delete , select , update , rename , exit , cls , count , aver
 
         (count) -> This command print the students count,
                    it finds how many students are in the list
+
+        (version) -> This command prints the current version
+                     of the program
 
         (average) -> This command shows you the average grade
                      of all the students in the list
@@ -62,6 +65,8 @@ COMMANDS: insert , delete , select , update , rename , exit , cls , count , aver
         (rename) -> "rename <id> <new_name>" it finds the student with the <id> you passed and changes
                                              his name into the <new_name> 
 
+        (version) -> You dont have to pass any arguments, you just write that
+
         (exit) -> "exit" Nothing special just exiting the program like that
 
         (cls) -> "cls" Also Nothing special just clears the terminal
@@ -75,7 +80,7 @@ COMMANDS: insert , delete , select , update , rename , exit , cls , count , aver
         (min) -> "min" And like this you can see the worst student
 
         (help) -> "help" If you type this command you will see 
-                         all the commands without reading this documentation
+                   all the commands without reading this documentation
 
 -------------------------------------------------------------------------------
 

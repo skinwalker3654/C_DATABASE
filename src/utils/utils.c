@@ -347,6 +347,7 @@ void help_show_commands() {
     printf(BOLD YELLOW"  rename <id> <new_name>       | Updates the name of the student\n"RESET);
     printf(BOLD YELLOW"  DELETE HELP                  | Shows you every usage of <delete> command\n"RESET);
     printf(BOLD YELLOW"  SELECT HELP                  | Shows you every usage of <select> command\n"RESET);
+    printf(BOLD YELLOW"  version                      | Shows the current version of the program\n"RESET);
     printf(BOLD YELLOW"  average                      | Prints students average grade\n"RESET);
     printf(BOLD YELLOW"  count                        | Prints student count\n"RESET);
     printf(BOLD YELLOW"  cls                          | Clears the terminal\n"RESET);

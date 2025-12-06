@@ -241,6 +241,9 @@ void execute_commands(char *input, Student_list **nodes) {
     }
     else if(strcmp(input,"help")==0) {
         help_show_commands();
+    } else if(strcmp(input,"version")==0) {
+        printf(BOLD YELLOW"[ C-DATABASE ]"RESET);
+        printf(" version: 1.0.0\n");
     }
     else if(strcmp(input,"exit")==0) {
         printf(BOLD BLUE"Exiting...\n"RESET);
