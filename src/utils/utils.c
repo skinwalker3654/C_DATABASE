@@ -342,7 +342,7 @@ void delete_operations(Student_list **nodes,char *operation,float number) {
 
 void help_show_commands() {
     printf(BOLD YELLOW"\nCommands:\n"RESET);
-    printf(BOLD YELLOW"  insert <id> <name> <grade>   | Adds a student to the database\n"RESET);
+    printf(BOLD YELLOW"  insert <id> <name> <grade>   | Adds students to the database\n"RESET);
     printf(BOLD YELLOW"  update <id> <new_grade>      | Updates students grade by the ID\n"RESET);
     printf(BOLD YELLOW"  rename <id> <new_name>       | Updates the name of the student\n"RESET);
     printf(BOLD YELLOW"  DELETE HELP                  | Shows you every usage of <delete> command\n"RESET);
@@ -360,7 +360,7 @@ void help_show_select_command() {
     printf(BOLD YELLOW"\n3 usages:\n"RESET);
     printf(BOLD YELLOW"  select                | Prints all the students in the list\n"RESET);
     printf(BOLD YELLOW"  select <name>         | Prints the student with this name\n"RESET);
-    printf(BOLD YELLOW"  select <op> <grade>   | Prints students with <op> <grade>\n"RESET);
+    printf(BOLD YELLOW"  select <op> <grade>   | Prints students with grade [<|>|=] than <grade>\n"RESET);
     printf(BOLD YELLOW"\n\nAvailable OP: '>', '<', '='\n\n"RESET);
 }
 
@@ -368,6 +368,6 @@ void help_show_delete_command() {
     printf(BOLD YELLOW"\n3 usages:\n"RESET);
     printf(BOLD YELLOW"  delete                | Deletes all the students in the list\n"RESET);
     printf(BOLD YELLOW"  delete <id>           | Deletes the student with this ID\n"RESET);
-    printf(BOLD YELLOW"  delete <op> <grade>   | Deletes students with <op> <grade>\n"RESET);
+    printf(BOLD YELLOW"  delete <op> <grade>   | Deletes students with grade [<|>|=] than <grade>\n"RESET);
     printf(BOLD YELLOW"\n\nAvailable OP: '>', '<', '='\n\n"RESET);
 }
