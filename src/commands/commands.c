@@ -6,26 +6,25 @@
 /*MAIN FUNCTIONS*/
 void add_student_to_list(Student_list **studentPtr,int id,char *name,float grade) {
      if(grade < MIN_STUDENT_GRADE || grade > MAX_STUDENT_GRADE) {
-        printf(RED"Error: Invalid grade, it must be a number between 0-100\n"RESET);
-        return;
-    }
-    
-    Student_list *new_student = malloc(sizeof(Student_list));
-    if(!new_student) {
-        printf(RED"Error: Memory allocation failed\n"RESET);
+        printf(RED"Error: Invalid grade, it must be a number between 0-100.\n"RESET);
         return;
     }
 
     if(id < MIN_STUDENT_IDNUM) {
-        printf(RED"Error: Invalid ID, it must be a positive number\n"RESET);
-        free(new_student);
+        printf(RED"Error: Invalid ID number, it must be a positive number bigger than 0.\n"RESET);
+        return;
+    }
+
+    Student_list *new_student = malloc(sizeof(Student_list));
+    if(!new_student) {
+        printf(RED"Error: Memory allocation failed.\n"RESET);
         return;
     }
 
     Student_list *temp1 = *studentPtr;
     while(temp1 != NULL) {
         if(temp1->id == id) {
-            printf(RED"Error: Student with this ID already exists\n"RESET);
+            printf(RED"Error: Student with this ID already exists.\n"RESET);
             free(new_student);
             return;
         }
@@ -35,7 +34,7 @@ void add_student_to_list(Student_list **studentPtr,int id,char *name,float grade
     Student_list *temp2 = *studentPtr;
     while(temp2 != NULL) {
         if(strcmp(temp2->name,name)==0) {
-            printf(RED"Error: Student with this name already exists\n"RESET);
+            printf(RED"Error: Student with this name already exists.\n"RESET);
             free(new_student);
             return;
         }
@@ -49,7 +48,7 @@ void add_student_to_list(Student_list **studentPtr,int id,char *name,float grade
 
     if(*studentPtr == NULL) {
         *studentPtr = new_student;
-        printf(GREEN"Student added succesfully\n"RESET);
+        printf(GREEN"Student added succesfully.\n"RESET);
         return;
     }
 
@@ -57,12 +56,12 @@ void add_student_to_list(Student_list **studentPtr,int id,char *name,float grade
     while(temp3->next != NULL) temp3 = temp3->next;
     temp3->next = new_student;
 
-    printf(GREEN"Student added succesfully\n"RESET);
+    printf(GREEN"Student added succesfully.\n"RESET);
 }
 
 void delete_student_from_list(Student_list **studentPtr,int id) {
     if(*studentPtr == NULL) {
-        printf(RED"Error: Student list is empty\n"RESET);
+        printf(RED"Error: Student list is empty.\n"RESET);
         return;
     }
 
@@ -79,7 +78,7 @@ void delete_student_from_list(Student_list **studentPtr,int id) {
     }
 
     if(temp == NULL) {
-        printf(RED"Error: Student not found in the list\n"RESET);
+        printf(RED"Error: Student not found in the list.\n"RESET);
         return;
     }
 
@@ -89,7 +88,7 @@ void delete_student_from_list(Student_list **studentPtr,int id) {
 
 void print_student_list(Student_list *studentPtr) {
     if(studentPtr == NULL) {
-        printf(RED"Error: Student list is empty\n"RESET);
+        printf(RED"Error: Student list is empty.\n"RESET);
         return;
     }
 
@@ -116,25 +115,25 @@ void print_student_list(Student_list *studentPtr) {
 
 void edit_student_grade(Student_list *studentPtr,int id,float newGrade) {
     if(studentPtr == NULL) {
-        printf(RED"Error: Student list is empty\n"RESET);
+        printf(RED"Error: Student list is empty.\n"RESET);
         return;
     }
 
     if(newGrade < MIN_STUDENT_GRADE || newGrade > MAX_STUDENT_GRADE) {
-        printf(RED"Error: Invalid grade. Must be a number between 0-100\n"RESET);
+        printf(RED"Error: Invalid grade. Must be a number between 0-100.\n"RESET);
         return;
     }
 
     while(studentPtr != NULL) {
         if(studentPtr->id == id) {
             studentPtr->grade = newGrade;
-            printf(GREEN"Students grade updated succesfully\n"RESET);
+            printf(GREEN"Students grade updated succesfully.\n"RESET);
             return;
         }
         studentPtr = studentPtr->next;
     }
 
-    printf(RED"Error: Student not found in the list\n"RESET);
+    printf(RED"Error: Student not found in the list.\n"RESET);
 }
 
 void edit_student_name(Student_list *studentPtr,int id,char *newName) {
@@ -146,18 +145,18 @@ void edit_student_name(Student_list *studentPtr,int id,char *newName) {
     while(studentPtr != NULL) {
         if(studentPtr->id == id) {
             strcpy(studentPtr->name,newName);
-            printf(GREEN"Students name updated succesfully\n"RESET);
+            printf(GREEN"Students name updated succesfully.\n"RESET);
             return;
         }
         studentPtr = studentPtr->next;
     }
 
-    printf(RED"Error: Student not found in the list\n"RESET);
+    printf(RED"Error: Student not found in the list.\n"RESET);
 }
 
 int find_students_count(Student_list *studentPtr) {
     if(studentPtr == NULL) {
-        printf(RED"Error: Student list is empty\n"RESET);
+        printf(RED"Error: Student list is empty.\n"RESET);
         return -1;
     }
     
@@ -172,7 +171,7 @@ int find_students_count(Student_list *studentPtr) {
 
 void print_average_grade(Student_list *studentPtr) {
     if(studentPtr == NULL) {
-        printf(RED"Error: Student list is empty\n"RESET);
+        printf(RED"Error: Student list is empty.\n"RESET);
         return;
     }
 
@@ -184,13 +183,13 @@ void print_average_grade(Student_list *studentPtr) {
     }
 
     float average_grade = sumGrade / find_students_count(studentPtr);
-    printf(BOLD YELLOW"Students average grade is:"RESET); 
+    printf(BOLD YELLOW"Total students average grade is:"RESET); 
     printf(GREEN" %.2f\n"RESET,average_grade);
 }
 
 void find_max_student(Student_list *studentPtr) {
     if(studentPtr == NULL) {
-        printf(RED"Error: Student list is empty\n"RESET);
+        printf(RED"Error: Student list is empty.\n"RESET);
         return;
     }
     
@@ -215,7 +214,7 @@ void find_max_student(Student_list *studentPtr) {
 
 void find_min_student(Student_list *studentPtr) {
     if(studentPtr == NULL) {
-        printf(RED"Error: Student list is empty\n"RESET);
+        printf(RED"Error: Student list is empty.\n"RESET);
         return;
     }
 

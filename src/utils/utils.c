@@ -7,7 +7,7 @@
 void save_students_to_file(Student_list *studentPtr) {
     FILE *file = fopen("bin/database.txt","w");
     if(!file) {
-        printf(RED"Error: Failed to open the file\n"RESET);
+        printf(RED"Error: Failed to open the file.\n"RESET);
         return;
     }
 
@@ -46,7 +46,7 @@ void load_students_from_file(Student_list **studentPtr) {
         if(sscanf(line,"%d|%[^|]|%f",&id,name,&grade)==3) {
             Student_list *new_student = malloc(sizeof(Student_list));
             if(!new_student) {
-                printf(RED"Error: Memory allocation failed\n"RESET);
+                printf(RED"Error: Memory allocation failed.\n"RESET);
                 fclose(file);
                 return;
             }
@@ -108,7 +108,7 @@ void select_operations(Student_list **nodes,char *operation,float number) {
     if(strcmp(operation,">")==0) {
         Student_list *temp = *nodes;
         if(temp == NULL) {
-            printf(RED"Error: Student list is empty\n"RESET);
+            printf(RED"Error: Student list is empty.\n"RESET);
             return;
         }
         
@@ -123,7 +123,7 @@ void select_operations(Student_list **nodes,char *operation,float number) {
         }
 
         if(!foundIdx) {
-            printf(RED"Error: Students with grade > then %.2f not found\n"RESET,number);
+            printf(RED"Error: Students with grade > then %.2f not found.\n"RESET,number);
             return;
         }
 
@@ -151,7 +151,7 @@ void select_operations(Student_list **nodes,char *operation,float number) {
     } else if(strcmp(operation,"<")==0) {
         Student_list *temp = *nodes;
         if(temp == NULL) {
-            printf(RED"Error: Student list is empty\n"RESET);
+            printf(RED"Error: Student list is empty.\n"RESET);
             return;
         }
 
@@ -166,7 +166,7 @@ void select_operations(Student_list **nodes,char *operation,float number) {
         }
 
         if(!foundIdx) {
-            printf(RED"Error: Students with grade < then %.2f not found\n"RESET,number);
+            printf(RED"Error: Students with grade < then %.2f not found.\n"RESET,number);
             return;
         }
 
@@ -195,7 +195,7 @@ void select_operations(Student_list **nodes,char *operation,float number) {
     } else if(strcmp(operation,"=")==0) {
         Student_list *temp = *nodes;
         if(temp == NULL) {
-            printf(RED"Error: Student list is empty\n"RESET);
+            printf(RED"Error: Student list is empty.\n"RESET);
             return;
         }
 
@@ -210,7 +210,7 @@ void select_operations(Student_list **nodes,char *operation,float number) {
         }
 
         if(!foundIdx) {
-            printf(RED"Error: Students with grade = to %.2f not found\n"RESET,number);
+            printf(RED"Error: Students with grade = to %.2f not found.\n"RESET,number);
             return;
         }
 
@@ -237,8 +237,8 @@ void select_operations(Student_list **nodes,char *operation,float number) {
 
         printf("+------------------------------+\n\n"); 
     } else {
-        printf(RED"\nError: Invalid operation '%s'\n"RESET,operation);
-        printf(RED"Type: 'SELECT HELP' for more details\n\n"RESET);
+        printf(RED"\nError: Invalid operation '%s'.\n"RESET,operation);
+        printf(RED"Type: 'SELECT HELP' for more details.\n\n"RESET);
     }
 }
 
@@ -246,7 +246,7 @@ void delete_operations(Student_list **nodes,char *operation,float number) {
     if(strcmp(operation,">")==0) {
         Student_list *temp = *nodes;
         if(temp == NULL) {
-            printf(RED"Error: Student list is empty\n"RESET);
+            printf(RED"Error: Student list is empty.\n"RESET);
             return;
         }
                 
@@ -261,7 +261,7 @@ void delete_operations(Student_list **nodes,char *operation,float number) {
         }
 
         if(!foundIdx) {
-            printf(RED"Error: Student with grade > then %.2f not found\n"RESET,number);
+            printf(RED"Error: Student with grade > then %.2f not found.\n"RESET,number);
             return;
         }
 
@@ -271,12 +271,12 @@ void delete_operations(Student_list **nodes,char *operation,float number) {
             temp = temp->next;
         }
 
-        printf(GREEN"Students with grade > then %.2f deleted succesfully\n"RESET,number);
+        printf(GREEN"Students with grade > then %.2f deleted succesfully.\n"RESET,number);
         return;
     } else if(strcmp(operation,"<")==0) {
         Student_list *temp = *nodes;
         if(temp == NULL) {
-            printf(RED"Error: Student list is empty\n"RESET);
+            printf(RED"Error: Student list is empty.\n"RESET);
             return;
         }
 
@@ -291,7 +291,7 @@ void delete_operations(Student_list **nodes,char *operation,float number) {
         }
 
         if(!foundIdx) {
-            printf(RED"Error: Students with grade < then %.2f not found\n"RESET,number);
+            printf(RED"Error: Students with grade < then %.2f not found.\n"RESET,number);
             return;
         }
 
@@ -301,12 +301,12 @@ void delete_operations(Student_list **nodes,char *operation,float number) {
             temp = temp->next;
         }
 
-        printf(GREEN"Students with grade < then %.2f deleted succesfully\n"RESET,number);
+        printf(GREEN"Students with grade < then %.2f deleted succesfully.\n"RESET,number);
         return;
     } else if(strcmp(operation,"=")==0) {
         Student_list *temp = *nodes;
         if(temp == NULL) {
-            printf(RED"Error: Student list is empty\n"RESET);
+            printf(RED"Error: Student list is empty.\n"RESET);
             return;
         }
 
@@ -321,7 +321,7 @@ void delete_operations(Student_list **nodes,char *operation,float number) {
         }
 
         if(!foundIdx) {
-            printf(RED"Error: Students with grade = to %.2f not found\n"RESET,number);
+            printf(RED"Error: Students with grade = to %.2f not found.\n"RESET,number);
             return;
         }
 
@@ -331,11 +331,11 @@ void delete_operations(Student_list **nodes,char *operation,float number) {
             temp = temp->next; 
         }
 
-        printf(GREEN"Students with grade = to %.2f deleted succesfully\n"RESET,number);
+        printf(GREEN"Students with grade = to %.2f deleted succesfully.\n"RESET,number);
         return;
     } else {
-        printf(RED"\nError: Invalid operation '%s'\n"RESET,operation);
-        printf(RED"Type: 'DELETE HELP' for more details\n\n"RESET);
+        printf(RED"\nError: Invalid operation '%s'.\n"RESET,operation);
+        printf(RED"Type: 'DELETE HELP' for more details.\n\n"RESET);
     }
 }
 

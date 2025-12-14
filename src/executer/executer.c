@@ -27,15 +27,15 @@ void execute_commands(char *input, Student_list **nodes) {
             char *endptr;
             id = strtol(tokens[1], &endptr, 10);
             if(*endptr != '\0') {
-                printf(RED"\nError: Invalid arguments passed\n"RESET);
-                printf(RED"Type: 'help' for more details\n\n"RESET);
+                printf(RED"\nError: Invalid arguments passed.\n"RESET);
+                printf(RED"Type: 'help' for more details.\n\n"RESET);
                 return;
             }
 
             grade = strtof(tokens[3], &endptr);
             if(*endptr != '\0') {
-                printf(RED"\nError: Invalid arguments passed\n"RESET);
-                printf(RED"Type: 'help' for more details\n\n"RESET);
+                printf(RED"\nError: Invalid arguments passed.\n"RESET);
+                printf(RED"Type: 'help' for more details.\n\n"RESET);
                 return;
             }
 
@@ -43,8 +43,8 @@ void execute_commands(char *input, Student_list **nodes) {
             name[sizeof(name)-1] = '\0';
             add_student_to_list(nodes, id, name, grade);
         } else {
-            printf(RED"\nError: Invalid arguments passed\n"RESET);
-            printf(RED"Type: 'help' for more details\n\n"RESET);
+            printf(RED"\nError: Invalid arguments passed.\n"RESET);
+            printf(RED"Type: 'help' for more details.\n\n"RESET);
         }
     }
     else if(strcmp(command,"delete")==0) {
@@ -60,36 +60,36 @@ void execute_commands(char *input, Student_list **nodes) {
 
         if(count == 1) {
             if(*nodes == NULL) {
-                printf(RED"Error: Student list is empty\n"RESET);
+                printf(RED"Error: Student list is empty.\n"RESET);
                 return;
             } else {
                 free_list_nodes(*nodes);
                 *nodes = NULL;
-                printf(GREEN"Students deleted succesfully\n"RESET);
+                printf(GREEN"Students deleted succesfully.\n"RESET);
                 save_students_to_file(*nodes);
                 return;
             }
         } else if(count == 2) {
             if(*nodes == NULL) {
-                printf(RED"Error: Student list is empty\n"RESET);
+                printf(RED"Error: Student list is empty.\n"RESET);
                 return;
             }
 
             char *endPtr;
             id = strtol(tokens[1],&endPtr,10);
             if(*endPtr != '\0') {
-                printf(RED"Error: Invalid ID\n"RESET);
+                printf(RED"Error: Invalid ID number '%s'.\n"RESET,tokens[1]);
                 return;
             }
             
             delete_student_from_list(nodes,id);
-            printf(GREEN"Student deleted succesfully\n"RESET);
+            printf(GREEN"Student deleted succesfully.\n"RESET);
             return;
         } else if(count == 3) {
             char *endPtr;
             float number = strtof(tokens[2],&endPtr);
             if(*endPtr != '\0') {
-                printf(RED"Error: Invalid number\n"RESET);
+                printf(RED"Error: Invalid number.\n"RESET);
                 return;
             }
 
@@ -97,8 +97,8 @@ void execute_commands(char *input, Student_list **nodes) {
             strcpy(operation,tokens[1]);
             delete_operations(nodes,operation,number);
         } else {
-            printf(RED"\nError: Invalid arguments passed\n"RESET);
-            printf(RED"Type: 'help' for more details\n\n"RESET);
+            printf(RED"\nError: Invalid arguments passed.\n"RESET);
+            printf(RED"Type: 'help' for more details.\n\n"RESET);
         }
     }
     else if(strcmp(command,"select")==0) {
@@ -133,14 +133,14 @@ void execute_commands(char *input, Student_list **nodes) {
             }
 
             if(tempPtr == NULL) {
-                printf(RED"Error: Student not found\n"RESET);
+                printf(RED"Error: Student not found.\n"RESET);
                 return;
             }
         } else if(count == 3) {
             char *endPtr;
             float number = strtof(tokens[2],&endPtr);
             if(*endPtr != '\0') {
-                printf(RED"Error: Invalid number\n"RESET);
+                printf(RED"Error: Invalid number '%s'.\n"RESET,tokens[2]);
                 return;
             }
 
@@ -148,8 +148,8 @@ void execute_commands(char *input, Student_list **nodes) {
             strcpy(operation,tokens[1]);
             select_operations(nodes,operation,number);
         } else {
-            printf(RED"\nError: Invalid arguments passed\n"RESET);
-            printf(RED"Type: 'help' for more details\n\n"RESET);
+            printf(RED"\nError: Invalid arguments passed.\n"RESET);
+            printf(RED"Type: 'help' for more details.\n\n"RESET);
         }
     }
     else if(strcmp(command,"update")==0) {
@@ -167,21 +167,21 @@ void execute_commands(char *input, Student_list **nodes) {
             char *endPtr;
             id = strtol(tokens[1],&endPtr,10);
             if(*endPtr != '\0') {
-                printf(RED"Error: Invalid ID\n"RESET);
+                printf(RED"Error: Invalid ID number '%s'\n"RESET,tokens[1]);
                 return;
             }
 
             float new_grade = strtof(tokens[2],&endPtr);
             if(*endPtr != '\0') {
-                printf(RED"Error: Invalid grade\n"RESET);
+                printf(RED"Error: Invalid grade number '%s'.\n"RESET,tokens[2]);
                 return;
             } 
 
             edit_student_grade(*nodes,id,new_grade);
             return;
         } else {
-            printf(RED"\nError: Invalid arguments passed\n"RESET);
-            printf(RED"Type: 'help' for more details\n\n"RESET);
+            printf(RED"\nError: Invalid arguments passed.\n"RESET);
+            printf(RED"Type: 'help' for more details.\n\n"RESET);
         }
     }
     else if(strcmp(command,"rename")==0) {
@@ -199,15 +199,15 @@ void execute_commands(char *input, Student_list **nodes) {
             char *endPtr;
             id = strtol(tokens[1],&endPtr,10);
             if(*endPtr != '\0') {
-                printf(RED"Error: Invalid ID\n"RESET);
+                printf(RED"Error: Invalid ID number '%s'.\n"RESET,tokens[1]);
                 return; 
             }
 
             edit_student_name(*nodes,id,tokens[2]);
             return;
         } else {
-            printf(RED"Error: Invalid arguments passed\n"RESET);
-            printf(RED"Type: 'help' for more details\n\n"RESET);
+            printf(RED"Error: Invalid arguments passed.\n"RESET);
+            printf(RED"Type: 'help' for more details.\n\n"RESET);
         }
     }
     else if(strcmp(input,"count")==0) {
@@ -216,12 +216,12 @@ void execute_commands(char *input, Student_list **nodes) {
         else if(studentCount == 1) {
             printf(BOLD YELLOW"There is"RESET);
             printf(GREEN" %d "RESET,studentCount);
-            printf(BOLD YELLOW"student in the list\n"RESET); 
+            printf(BOLD YELLOW"student in the list.\n"RESET); 
         }
         else if(studentCount > 1) {  
             printf(BOLD YELLOW"There are"RESET);
             printf(GREEN" %d "RESET,studentCount);
-            printf(BOLD YELLOW"students in the list\n"RESET);
+            printf(BOLD YELLOW"students in the list.\n"RESET);
         }
     }
     else if(strcmp(input,"average")==0) {
@@ -259,7 +259,7 @@ void execute_commands(char *input, Student_list **nodes) {
         #endif
     }
     else {
-        printf(RED"\nError: Invalid command '%s'\n"RESET,input);
-        printf(RED"Type: 'help' for more details\n\n"RESET);
+        printf(RED"\nError: Invalid command '%s'.\n"RESET,input);
+        printf(RED"Type: 'help' for more details.\n\n"RESET);
     }
 }
