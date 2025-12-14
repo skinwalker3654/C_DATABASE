@@ -112,7 +112,7 @@ NOTES:
 FILE STRUCTURE:
     C_DATABASE/
         |-- .github/
-        |     |-- screenshot.png
+        |     |-- SCREENSHOT.png
         |
         |-- src/
         |     |-- colors/
