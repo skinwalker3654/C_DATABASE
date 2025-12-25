@@ -12,6 +12,7 @@ void execute_commands(char *input, Student_list **nodes) {
     if(strlen(input) == 0) return;
     sscanf(input,"%s",command);
 
+    /*We find and parse what command the user gave*/
     if(strcmp(command,"insert")==0) {
         const int tokensCount = 4;
         char *tokens[tokensCount];
@@ -27,15 +28,13 @@ void execute_commands(char *input, Student_list **nodes) {
             char *endptr;
             id = strtol(tokens[1], &endptr, 10);
             if(*endptr != '\0') {
-                printf(RED"\nError: Invalid arguments passed.\n"RESET);
-                printf(RED"Type: 'help' for more details.\n\n"RESET);
+                printf(RED"Error: Invalid ID number '%s'.\n"RESET,tokens[1]);
                 return;
             }
 
             grade = strtof(tokens[3], &endptr);
             if(*endptr != '\0') {
-                printf(RED"\nError: Invalid arguments passed.\n"RESET);
-                printf(RED"Type: 'help' for more details.\n\n"RESET);
+                printf(RED"Error: Invalid grade number '%s'.\n"RESET,tokens[3]);
                 return;
             }
 
@@ -43,7 +42,7 @@ void execute_commands(char *input, Student_list **nodes) {
             name[sizeof(name)-1] = '\0';
             add_student_to_list(nodes, id, name, grade);
         } else {
-            printf(RED"\nError: Invalid arguments passed.\n"RESET);
+            printf(RED"\nError: Invalid arguments count passed.\n"RESET);
             printf(RED"Type: 'help' for more details.\n\n"RESET);
         }
     }
@@ -89,7 +88,7 @@ void execute_commands(char *input, Student_list **nodes) {
             char *endPtr;
             float number = strtof(tokens[2],&endPtr);
             if(*endPtr != '\0') {
-                printf(RED"Error: Invalid number.\n"RESET);
+                printf(RED"Error: Invalid number '%s'.\n"RESET,tokens[2]);
                 return;
             }
 
@@ -97,7 +96,7 @@ void execute_commands(char *input, Student_list **nodes) {
             strcpy(operation,tokens[1]);
             delete_operations(nodes,operation,number);
         } else {
-            printf(RED"\nError: Invalid arguments passed.\n"RESET);
+            printf(RED"\nError: Invalid argument count passed.\n"RESET);
             printf(RED"Type: 'help' for more details.\n\n"RESET);
         }
     }
@@ -148,7 +147,7 @@ void execute_commands(char *input, Student_list **nodes) {
             strcpy(operation,tokens[1]);
             select_operations(nodes,operation,number);
         } else {
-            printf(RED"\nError: Invalid arguments passed.\n"RESET);
+            printf(RED"\nError: Invalid arguments count passed.\n"RESET);
             printf(RED"Type: 'help' for more details.\n\n"RESET);
         }
     }
@@ -180,7 +179,7 @@ void execute_commands(char *input, Student_list **nodes) {
             edit_student_grade(*nodes,id,new_grade);
             return;
         } else {
-            printf(RED"\nError: Invalid arguments passed.\n"RESET);
+            printf(RED"\nError: Invalid arguments count passed.\n"RESET);
             printf(RED"Type: 'help' for more details.\n\n"RESET);
         }
     }
@@ -206,7 +205,7 @@ void execute_commands(char *input, Student_list **nodes) {
             edit_student_name(*nodes,id,tokens[2]);
             return;
         } else {
-            printf(RED"Error: Invalid arguments passed.\n"RESET);
+            printf(RED"Error: Invalid arguments count passed.\n"RESET);
             printf(RED"Type: 'help' for more details.\n\n"RESET);
         }
     }

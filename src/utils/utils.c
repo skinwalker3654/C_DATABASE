@@ -11,6 +11,7 @@ void save_students_to_file(Student_list *studentPtr) {
         return;
     }
 
+    /*This saves every student into a file*/
     while(studentPtr != NULL) {
         fprintf(file,"%d|%s|%.2f\n"
                 ,studentPtr->id
@@ -51,11 +52,13 @@ void load_students_from_file(Student_list **studentPtr) {
                 return;
             }
 
+            /*This initializes the stuedent node so we can add it to the linked list next*/
             new_student->id = id;
             new_student->grade = grade;
             strcpy(new_student->name,name);
             new_student->next = NULL;
             
+            /*Adding the student node*/
             if(*studentPtr == NULL) {
                 *studentPtr = new_student;
                 continue;
@@ -112,6 +115,7 @@ void select_operations(Student_list **nodes,char *operation,float number) {
             return;
         }
         
+        /*This finds stuednts with grade > than the given number*/
         int foundIdx = 0;
         Student_list *scan = *nodes;
         while(scan != NULL) {
@@ -123,11 +127,11 @@ void select_operations(Student_list **nodes,char *operation,float number) {
         }
 
         if(!foundIdx) {
-            printf(RED"Error: Students with grade > then %.2f not found.\n"RESET,number);
+            printf(RED"Error: Students with grade > than %.2f not found.\n"RESET,number);
             return;
         }
 
-        printf(BOLD YELLOW"\nStudents with grade > then %.2f:\n"RESET,number);
+        printf(BOLD YELLOW"\nStudents with grade > than %.2f:\n"RESET,number);
         printf("\n+------------------------------+\n");
         printf("| ");
         printf(BOLD BLUE"ID\t Name\t\t Grade"RESET);
@@ -155,6 +159,7 @@ void select_operations(Student_list **nodes,char *operation,float number) {
             return;
         }
 
+        /*This finds students with grade < than the given number*/
         int foundIdx = 0;
         Student_list *scan = *nodes;
         while(scan != NULL) {
@@ -166,17 +171,18 @@ void select_operations(Student_list **nodes,char *operation,float number) {
         }
 
         if(!foundIdx) {
-            printf(RED"Error: Students with grade < then %.2f not found.\n"RESET,number);
+            printf(RED"Error: Students with grade < than %.2f not found.\n"RESET,number);
             return;
         }
 
-        printf(BOLD YELLOW"\nStudents with grade < then %.2f:\n"RESET,number);
+        printf(BOLD YELLOW"\nStudents with grade < than %.2f:\n"RESET,number);
         printf("\n+------------------------------+\n");
         printf("| ");
         printf(BOLD BLUE"ID\t Name\t\t Grade"RESET);
         printf(" |\n");
         printf("+------------------------------+\n");
 
+        /*We print those students*/
         while(temp != NULL) {
             if(temp->grade < number) {
                 printf("| %d\t %-10s\t" ,temp->id ,temp->name);
@@ -199,6 +205,7 @@ void select_operations(Student_list **nodes,char *operation,float number) {
             return;
         }
 
+        /*This finds students with grade = to the given number*/
         int foundIdx = 0;
         Student_list *scan = *nodes;
         while(scan != NULL) {
@@ -221,6 +228,7 @@ void select_operations(Student_list **nodes,char *operation,float number) {
         printf(" |\n");
         printf("+------------------------------+\n");
 
+        /*We print those students*/
         while(temp != NULL) {
             if(temp->grade == number) {
                 printf("| %d\t %-10s\t" ,temp->id ,temp->name);
@@ -250,6 +258,7 @@ void delete_operations(Student_list **nodes,char *operation,float number) {
             return;
         }
                 
+        /*This finds students with grade > than the given number*/
         Student_list *scan = *nodes;
         int foundIdx = 0;
         while(scan != NULL) {
@@ -261,7 +270,7 @@ void delete_operations(Student_list **nodes,char *operation,float number) {
         }
 
         if(!foundIdx) {
-            printf(RED"Error: Student with grade > then %.2f not found.\n"RESET,number);
+            printf(RED"Error: Student with grade > than %.2f not found.\n"RESET,number);
             return;
         }
 
@@ -271,7 +280,7 @@ void delete_operations(Student_list **nodes,char *operation,float number) {
             temp = temp->next;
         }
 
-        printf(GREEN"Students with grade > then %.2f deleted succesfully.\n"RESET,number);
+        printf(GREEN"Students with grade > than %.2f deleted succesfully.\n"RESET,number);
         return;
     } else if(strcmp(operation,"<")==0) {
         Student_list *temp = *nodes;
@@ -280,6 +289,7 @@ void delete_operations(Student_list **nodes,char *operation,float number) {
             return;
         }
 
+        /*This finds students with grade < than the given number*/
         int foundIdx = 0;
         Student_list *scan = *nodes;
         while(scan != NULL) {
@@ -291,7 +301,7 @@ void delete_operations(Student_list **nodes,char *operation,float number) {
         }
 
         if(!foundIdx) {
-            printf(RED"Error: Students with grade < then %.2f not found.\n"RESET,number);
+            printf(RED"Error: Students with grade < than %.2f not found.\n"RESET,number);
             return;
         }
 
@@ -301,7 +311,7 @@ void delete_operations(Student_list **nodes,char *operation,float number) {
             temp = temp->next;
         }
 
-        printf(GREEN"Students with grade < then %.2f deleted succesfully.\n"RESET,number);
+        printf(GREEN"Students with grade < than %.2f deleted succesfully.\n"RESET,number);
         return;
     } else if(strcmp(operation,"=")==0) {
         Student_list *temp = *nodes;
@@ -310,6 +320,7 @@ void delete_operations(Student_list **nodes,char *operation,float number) {
             return;
         }
 
+        /*This finds students with grade = to the given number*/
         int foundIdx = 0;
         Student_list *scan = *nodes;
         while(scan != NULL) {

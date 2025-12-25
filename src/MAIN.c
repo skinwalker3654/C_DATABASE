@@ -4,9 +4,11 @@
 #include <signal.h>
 #include <string.h>
 
+/*Database of students*/
 Student_list *nodes = NULL;
+
 void sigint_handler(int sig) {
-    printf(GREEN"\nDont worry Freeing memory and exiting...\n"RESET);
+    printf(GREEN"\nDont worry memory is getting freed and closing the program...\n"RESET);
     free_list_nodes(nodes); 
     exit(0);
 }

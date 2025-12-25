@@ -50,8 +50,8 @@ id|name|grade
 example:
 
 ```
-1|John Doe|8.5
-2|Alice Smith|9.2
+1|John|8.5
+2|Michael smith|9.2
 ```
 
 ---
