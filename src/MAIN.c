@@ -7,10 +7,14 @@
 /*Database of students*/
 Student_list *nodes = NULL;
 
-void sigint_handler(int sig) {
-    printf(GREEN"\nDont worry memory is getting freed and closing the program...\n"RESET);
-    free_list_nodes(nodes); 
-    exit(0);
+void sigint_handler(int signal) {
+    if(signal == SIGINT) {
+        printf(GREEN"\nDont worry memory is getting freed and closing the program...\n"RESET);
+        free_list_nodes(nodes);
+        exit(EXIT_SUCCESS);
+    } else {
+        printf(RED"Error: Ctr + C signal failed to catch."RESET);
+    }
 }
 
 int main(void) {
