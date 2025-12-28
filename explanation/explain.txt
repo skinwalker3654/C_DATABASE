@@ -130,6 +130,10 @@ FILE STRUCTURE:
         |     |      |-- executer.h
         |     |      |-- executer.c
         |     |
+        |     |-- storage/
+        |     |      |-- storage.c
+        |     |      |-- storage.h
+        |     |
         |     |-- MAIN.c
         |      
         |

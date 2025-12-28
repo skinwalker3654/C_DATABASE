@@ -21,7 +21,7 @@ void edit_student_grade(Student_list *studentPtr,int id,float newGrade);
 void edit_student_name(Student_list *studentPtr,int id,char *newName);
 int find_students_count(Student_list *studentPtr);
 void print_average_grade(Student_list *studentPtr);
-void find_min_student(Student_list *studentPtr);
-void find_max_student(Student_list *studentPtr);
+void find_min_student_grade(Student_list *studentPtr);
+void find_max_student_grade(Student_list *studentPtr);
 
 #endif

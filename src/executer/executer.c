@@ -227,10 +227,10 @@ void execute_commands(char *input, Student_list **nodes) {
         print_average_grade(*nodes);
     }
     else if(strcmp(input,"max")==0) {
-        find_max_student(*nodes);
+        find_max_student_grade(*nodes);
     }
     else if(strcmp(input,"min")==0) {
-        find_min_student(*nodes);
+        find_min_student_grade(*nodes);
     }
     else if(strcmp(input,"SELECT HELP")==0) {
         help_show_select_command();

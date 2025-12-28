@@ -1,4 +1,4 @@
-SRC = src/MAIN.c src/commands/commands.c src/executer/executer.c src/utils/utils.c src/colors/colors.h
+SRC = src/MAIN.c src/commands/commands.c src/executer/executer.c src/utils/utils.c src/storage/storage.c
 BIN = bin
 TAR = bin/main
 CC = gcc
@@ -11,7 +11,7 @@ $(BIN):
 
 $(TAR): $(SRC) | $(BIN)
 	@echo "compiling the program..."
-	$(CC) $(SRC) -o $(TAR)
+	$(CC) $(SRC) -o $(TAR) -g
 
 run:
 	@echo "running the program..."

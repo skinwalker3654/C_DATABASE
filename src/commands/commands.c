@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "../utils/utils.h"
+#include "commands.h"
+#include "../colors/colors.h"
 #include <string.h>
 
 /*MAIN FUNCTIONS*/
@@ -187,7 +188,7 @@ void print_average_grade(Student_list *studentPtr) {
     printf(GREEN" %.2f\n"RESET,average_grade);
 }
 
-void find_max_student(Student_list *studentPtr) {
+void find_max_student_grade(Student_list *studentPtr) {
     if(studentPtr == NULL) {
         printf(RED"Error: Student list is empty.\n"RESET);
         return;
@@ -212,7 +213,7 @@ void find_max_student(Student_list *studentPtr) {
     printf(BOLD YELLOW"ID: %d\n\n"RESET,student->id);
 }
 
-void find_min_student(Student_list *studentPtr) {
+void find_min_student_grade(Student_list *studentPtr) {
     if(studentPtr == NULL) {
         printf(RED"Error: Student list is empty.\n"RESET);
         return;

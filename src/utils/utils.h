@@ -2,12 +2,8 @@
 #define UTILS_H
 
 #include "../commands/commands.h"
-#include "../colors/colors.h"
-#define DATABASE_FILE "bin/database.txt"
 
 /*UTIL FUNCTIONS*/
-void save_students_to_file(Student_list *studentPtr);
-void load_students_from_file(Student_list **studentPtr);
 void sort_students_by_id(Student_list *studentPtr);
 void free_list_nodes(Student_list *studentPtr);
 
