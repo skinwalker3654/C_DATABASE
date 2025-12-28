@@ -3,6 +3,7 @@
 
 #include "../commands/commands.h"
 #include "../colors/colors.h"
+#define DATABASE_FILE "bin/database.txt"
 
 /*UTIL FUNCTIONS*/
 void save_students_to_file(Student_list *studentPtr);

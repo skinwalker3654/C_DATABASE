@@ -5,7 +5,7 @@
 
 /*UTIL FUNCTIONS*/
 void save_students_to_file(Student_list *studentPtr) {
-    FILE *file = fopen("bin/database.txt","w");
+    FILE *file = fopen(DATABASE_FILE,"w");
     if(!file) {
         printf(RED"Error: Failed to open the file.\n"RESET);
         return;
@@ -32,7 +32,7 @@ void free_list_nodes(Student_list *studentPtr) {
 }
 
 void load_students_from_file(Student_list **studentPtr) {
-    FILE *file = fopen("bin/database.txt","r");
+    FILE *file = fopen(DATABASE_FILE,"r");
     if(!file) { return; }
 
     free_list_nodes(*studentPtr);
