@@ -11,7 +11,7 @@ $(BIN):
 
 $(TAR): $(SRC) | $(BIN)
 	@echo "compiling the program..."
-	$(CC) $(SRC) -o $(TAR) -g
+	$(CC) $(SRC) -o $(TAR) 
 
 run:
 	@echo "running the program..."

@@ -190,85 +190,102 @@ void select_operations(Student_list **nodes,char *operation,float number) {
     }
 }
 
-void delete_operations(Student_list **nodes, char *operation, float number) {
-    if(*nodes == NULL) {
-        printf(RED"Error: Student list is empty.\n"RESET);
-        return;
-    }
-
-    int deleted = 0;
-    if(strcmp(operation, ">") == 0) {
-        Student_list **current = nodes; 
-        while(*current) {
-            if((*current)->grade > number) {
-                Student_list *to_free = *current;
-                *current = to_free->next;   
-                free(to_free);
-                deleted++;
-            } else {
-                current = &(*current)->next;
-            }
-
-        }
-
-        if(!deleted) {
-            printf(RED"Error: Students with grade > than %.2f not found.\n"RESET, number);
+void delete_operations(Student_list **nodes,char *operation,float number) {
+    if(strcmp(operation,">")==0) {
+        Student_list *temp = *nodes;
+        if(temp == NULL) {
+            printf(RED"Error: Student list is empty.\n"RESET);
             return;
         }
 
-        printf(GREEN"Students with grade > than %.2f deleted successfully.\n"RESET, number);
-        return;
-    }
-
-    if(strcmp(operation, "<") == 0) {
-        Student_list **current = nodes;
-        while(*current) {
-            if((*current)->grade < number) {
-                Student_list *to_free = *current;
-                *current = to_free->next;
-                free(to_free);
-                deleted++;
-            } else {
-                current = &(*current)->next;
+        /*This finds stuednts with grade > than the given number*/
+        int foundIdx = 0;
+        Student_list *scan = *nodes;
+        while(scan != NULL) {
+            if(scan->grade > number) {
+                foundIdx = 1;
+                break;
             }
+            scan = scan->next;
         }
 
-        if(!deleted) {
-            printf(RED"Error: Students with grade < than %.2f not found.\n"RESET, number);
+        if(!foundIdx) {
+            printf(RED"Error: Students with grade > than %.2f not found.\n"RESET,number);
             return;
         }
 
-        printf(GREEN"Students with grade < than %.2f deleted successfully.\n"RESET, number);
-        return;
-    }
-
-    if(strcmp(operation, "=") == 0) {
-        Student_list **current = nodes;
-        while(*current) {
-            if((*current)->grade == number) {
-                Student_list *to_free = *current;
-                *current = to_free->next;
-                free(to_free);
-                deleted++;
-            } else {
-                current = &(*current)->next;
-            }
+        while(temp != NULL) {
+            if(temp->grade > number) 
+                delete_student_from_list(nodes,temp->id);
+            temp = temp->next;
         }
 
-        if(!deleted) {
-            printf(RED"Error: Students with grade = to %.2f not found.\n"RESET, number);
+        printf(GREEN"Students with grade > than %.2f have been deleted succesfully.\n"RESET,number);
+    } else if(strcmp(operation,"<")==0) {
+        Student_list *temp = *nodes;
+        if(temp == NULL) {
+            printf(RED"Error: Student list is empty.\n"RESET);
             return;
         }
 
-        printf(GREEN"Students with grade = to %.2f deleted successfully.\n"RESET, number);
-        return;
-    }
+        /*This finds students with grade < than the given number*/
+        int foundIdx = 0;
+        Student_list *scan = *nodes;
+        while(scan != NULL) {
+            if(scan->grade < number) {
+                foundIdx = 1;
+                break;
+            }
+            scan = scan->next;
+        }
 
-    printf(RED"\nError: Invalid operation '%s'.\n"RESET, operation);
-    printf(RED"Type: 'DELETE HELP' for more details.\n\n"RESET);
+        if(!foundIdx) {
+            printf(RED"Error: Students with grade < than %.2f not found.\n"RESET,number);
+            return;
+        }
+
+        while(temp != NULL) {
+            if(temp->grade < number) 
+                delete_student_from_list(nodes,temp->id);
+            temp = temp->next;
+        }
+
+        printf(GREEN"Students with grade < than %.2f have been deleted succesfully.\n"RESET,number);
+    } else if(strcmp(operation,"=")==0) {
+        Student_list *temp = *nodes;
+        if(temp == NULL) {
+            printf(RED"Error: Student list is empty.\n"RESET);
+            return;
+        }
+
+        /*This finds students with grade = to the given number*/
+        int foundIdx = 0;
+        Student_list *scan = *nodes;
+        while(scan != NULL) {
+            if(scan->grade == number) {
+                foundIdx = 1;
+                break;
+            }
+            scan = scan->next;
+        }
+
+        if(!foundIdx) {
+            printf(RED"Error: Students with grade = to %.2f not found.\n"RESET,number);
+            return;
+        }
+
+        while(temp != NULL) {
+            if(temp->grade == number) 
+                delete_student_from_list(nodes,temp->id);
+            temp = temp->next;
+        }
+
+        printf(GREEN"Students with grade = to %.2f have been deleted succesfully.\n"RESET,number);
+    } else {
+        printf(RED"\nError: Invalid operation '%s'.\n"RESET,operation);
+        printf(RED"Type: 'DELETE HELP' for more details.\n\n"RESET);
+    }
 }
-
-
 void help_show_commands() {
     printf(BOLD YELLOW"\nCommands:\n"RESET);
     printf(BOLD YELLOW"  insert <id> <name> <grade>   | Adds students to the database\n"RESET);

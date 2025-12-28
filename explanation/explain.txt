@@ -116,27 +116,25 @@ FILE STRUCTURE:
         |
         |-- src/
         |     |-- colors/
-        |     |      |-- colors.h
+        |     |     |-- colors.h
         |     |
         |     |-- commands/
-        |     |      |-- database.c
-        |     |      |-- database.h
+        |     |     |-- database.c
+        |     |     |-- database.h
         |     |      
         |     |-- utils/
-        |     |      |-- utils.c
-        |     |      |-- utils.h
+        |     |     |-- utils.c
+        |     |     |-- utils.h
         |     |
         |     |-- executer/
-        |     |      |-- executer.h
-        |     |      |-- executer.c
+        |     |     |-- executer.h
+        |     |     |-- executer.c
         |     |
         |     |-- storage/
-        |     |      |-- storage.c
-        |     |      |-- storage.h
+        |     |     |-- storage.c
+        |     |     |-- storage.h
         |     |
         |     |-- MAIN.c
-        |      
-        |
         |
         |-- explanation/
         |     |-- explain.txt

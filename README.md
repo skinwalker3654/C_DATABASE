@@ -51,7 +51,7 @@ example:
 
 ```
 1|John|8.5
-2|Michael smith|9.2
+2|Michael|9.2
 ```
 
 ---
@@ -63,3 +63,4 @@ example:
 - If `database.txt` dosent exists than the program creats it 
 - The colors are not the same in every systems or terminal configuration
 - You cant insert two students with the same name or ID 
+- You cant insert names with spaces not even with quotes

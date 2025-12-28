@@ -47,7 +47,7 @@ void execute_commands(char *input, Student_list **nodes) {
         }
     }
     else if(strcmp(command,"delete")==0) {
-        const int tokensCount = 2;
+        const int tokensCount = 3;
         char *tokens[tokensCount];
 
         char *token = strtok(input," ");
