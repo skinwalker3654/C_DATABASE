@@ -33,7 +33,7 @@ make run
 ### you can also debug and run the program with -g flag
 ```bash
 make debug
-make rundebug
+make rundebug  # GDB tool is required
 ```
 ### when you want to delete executables:
 ```bash
