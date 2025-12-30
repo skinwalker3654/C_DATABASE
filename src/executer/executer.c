@@ -18,10 +18,10 @@ void execute_commands(char *input, Student_list **nodes) {
         char *tokens[tokensCount];
 
         int count = 0;
-        char *ptr = strtok(input, " ");
-        while(ptr != NULL) {
-            tokens[count++] = ptr;
-            ptr = strtok(NULL, " ");
+        char *token = strtok(input, " ");
+        while(token != NULL) {
+            tokens[count++] = token;
+            token = strtok(NULL, " ");
         }
 
         if(count == tokensCount) {

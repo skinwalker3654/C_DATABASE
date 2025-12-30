@@ -30,6 +30,11 @@ It support **CROUD OPARATIONS**
 make 
 make run
 ```
+### you can also debug the program with -g flag
+```bash
+make debug
+make rundebug
+```
 ### when you want to delete executables:
 ```bash
 make clean

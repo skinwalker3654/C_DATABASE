@@ -1,7 +1,8 @@
 SRC = src/MAIN.c src/commands/commands.c src/executer/executer.c src/utils/utils.c src/storage/storage.c
 BIN = bin
-TAR = bin/main
+TAR = $(BIN)/main
 CC = gcc
+GDB = gdb
 
 all: $(TAR)
 
@@ -16,6 +17,14 @@ $(TAR): $(SRC) | $(BIN)
 run:
 	@echo "running the program..."
 	./bin/main
+
+debug: $(SRC) | $(BIN)
+	@echo "Compiling the program with -g flag..."
+	$(CC) $(SRC) -o $(TAR) -g
+
+rundebug: $(TAR)
+	@echo "Running the program in debug mode"
+	gdb ./$(TAR)
 
 clean:
 	@echo "deleting executable files..."
