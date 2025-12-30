@@ -30,7 +30,7 @@ It support **CROUD OPARATIONS**
 make 
 make run
 ```
-### you can also debug the program with -g flag
+### you can also debug and run the program with -g flag
 ```bash
 make debug
 make rundebug
