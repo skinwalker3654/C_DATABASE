@@ -23,8 +23,13 @@ It support **CROUD OPARATIONS**
 ---
 
 ## Requirments:
-`gcc` compiler and `GNU MAKE`
+`gcc` compiler `git` and `GNU MAKE`
 
+### Get the reposetory:
+```bash
+git clone https://github.com/skinwalker3654/C_DATABASE
+cd C_DATABASE
+```
 ### build and run:
 ```bash
 make 
@@ -35,7 +40,7 @@ make run
 make debug
 make rundebug  # GDB tool is required
 ```
-### when you want to delete executables:
+### when you want to delete the executables:
 ```bash
 make clean
 ```

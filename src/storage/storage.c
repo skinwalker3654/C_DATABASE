@@ -5,7 +5,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include "../colors/colors.h"
-#include "../commands/commands.h"
 #include "../utils/utils.h"
 
 #define DATABASE_FILE "bin/database.txt"
