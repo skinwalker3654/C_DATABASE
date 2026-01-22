@@ -1,6 +1,3 @@
-#ifndef STORAGE_H
-#define STORAGE_H
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -69,5 +66,3 @@ void load_students_from_file(Student_list **studentPtr) {
 
     fclose(file);
 }
-
-#endif
