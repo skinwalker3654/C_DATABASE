@@ -95,7 +95,7 @@ void print_student_list(Student_list *studentPtr) {
 
     printf("\n+------------------------------+\n");
     printf("| ");
-    printf(BOLD BLUE"ID\t Name\t\t Grade"RESET);
+    printf(BLUE"ID\t Name\t\t Grade"RESET);
     printf(" |\n");
     printf("+------------------------------+\n");
     while(studentPtr != NULL) {
@@ -184,7 +184,7 @@ void print_average_grade(Student_list *studentPtr) {
     }
 
     float average_grade = sumGrade / find_students_count(studentPtr);
-    printf(BOLD YELLOW"Total students average grade is:"RESET); 
+    printf(LBLUE"Total students average grade is:"RESET); 
     printf(GREEN" %.2f\n"RESET,average_grade);
 }
 
@@ -206,11 +206,11 @@ void find_max_student_grade(Student_list *studentPtr) {
     }
 
     printf("\nStudent with the maximum grade:\n");
-    printf(BOLD YELLOW"Name: %s"RESET,student->name);
+    printf(LBLUE"Name: %s"RESET,student->name);
     printf(" | ");
-    printf(BOLD YELLOW"Grade: %.2f"RESET,max_grade);
+    printf(LBLUE"Grade: %.2f"RESET,max_grade);
     printf(" | ");
-    printf(BOLD YELLOW"ID: %d\n\n"RESET,student->id);
+    printf(LBLUE"ID: %d\n\n"RESET,student->id);
 }
 
 void find_min_student_grade(Student_list *studentPtr) {
@@ -231,9 +231,9 @@ void find_min_student_grade(Student_list *studentPtr) {
     }
 
     printf("\nStudent with the minimum grade:\n");
-    printf(BOLD YELLOW"Name: %s"RESET,student->name);
+    printf(LBLUE"Name: %s"RESET,student->name);
     printf(" | ");
-    printf(BOLD YELLOW"Grade: %.2f"RESET,min_grade);
+    printf(LBLUE"Grade: %.2f"RESET,min_grade);
     printf(" | ");
-    printf(BOLD YELLOW"ID: %d\n\n"RESET,student->id);
+    printf(LBLUE"ID: %d\n\n"RESET,student->id);
 }

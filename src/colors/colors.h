@@ -2,12 +2,11 @@
 #define COLORS_H
 
 /*COLORS*/
-#define RESET   "\033[0m"
-#define RED     "\033[31m"
-#define GREEN   "\033[32m"
-#define YELLOW  "\033[33m"
-#define BLUE    "\033[35m"
-#define CYAN    "\033[36m"
-#define BOLD    "\033[1m"
+#define RESET   "\x1b[0m"
+#define RED     "\x1b[38;5;166m"
+#define GREEN   "\x1b[38;5;148m"
+#define LBLUE   "\x1b[38;5;45m"
+#define BLUE    "\x1b[38;5;68m"
+#define CYAN    "\x1b[38;5;66m"
 
 #endif

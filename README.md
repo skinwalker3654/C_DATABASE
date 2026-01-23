@@ -47,7 +47,7 @@ make clean
 ---
 
 ## SCREENSHOT
-![alt text](https://github.com/skinwalker3654/C_DATABASE/blob/main/.github/SCREENSHOT.png?raw=true)
+![alt text](https://github.com/skinwalker3654/C_DATABASE/blob/main/.github/screenshot.png?raw=true)
 ---
 
 ## Database file

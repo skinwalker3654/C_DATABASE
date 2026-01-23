@@ -121,11 +121,11 @@ void execute_commands(char *input, Student_list **nodes) {
 
             while(tempPtr != NULL) {
                 if(strcmp(tempPtr->name,name)==0) {
-                    printf(BOLD YELLOW"ID: %d"RESET,tempPtr->id);
+                    printf(LBLUE"ID: %d"RESET,tempPtr->id);
                     printf(" | ");
-                    printf(BOLD YELLOW "Name: %s"RESET,tempPtr->name);
+                    printf(LBLUE "Name: %s"RESET,tempPtr->name);
                     printf(" | ");
-                    printf(BOLD YELLOW "Grade: %.2f\n"RESET,tempPtr->grade);
+                    printf(LBLUE "Grade: %.2f\n"RESET,tempPtr->grade);
                     break;
                 }
                 tempPtr = tempPtr->next;
@@ -213,14 +213,14 @@ void execute_commands(char *input, Student_list **nodes) {
         int studentCount = find_students_count(*nodes);
         if(studentCount == -1) return;
         else if(studentCount == 1) {
-            printf(BOLD YELLOW"There is"RESET);
+            printf(LBLUE"There is"RESET);
             printf(GREEN" %d "RESET,studentCount);
-            printf(BOLD YELLOW"student in the list.\n"RESET); 
+            printf(LBLUE"student in the list.\n"RESET); 
         }
         else if(studentCount > 1) {  
-            printf(BOLD YELLOW"There are"RESET);
+            printf(LBLUE"There are"RESET);
             printf(GREEN" %d "RESET,studentCount);
-            printf(BOLD YELLOW"students in the list.\n"RESET);
+            printf(LBLUE"students in the list.\n"RESET);
         }
     }
     else if(strcmp(input,"average")==0) {
@@ -241,11 +241,11 @@ void execute_commands(char *input, Student_list **nodes) {
     else if(strcmp(input,"help")==0) {
         help_show_commands();
     } else if(strcmp(input,"version")==0) {
-        printf(BOLD YELLOW"[ C-DATABASE ]"RESET);
+        printf(LBLUE"[ C-DATABASE ]"RESET);
         printf(" version: 1.0.0\n");
     }
     else if(strcmp(input,"exit")==0) {
-        printf(BOLD BLUE"Exiting...\n"RESET);
+        printf(BLUE"Exiting...\n"RESET);
         save_students_to_file(*nodes);
         free_list_nodes(*nodes);
         exit(0);

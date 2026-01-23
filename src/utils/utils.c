@@ -71,10 +71,10 @@ void select_operations(Student_list **nodes,char *operation,float number) {
             return;
         }
 
-        printf(BOLD YELLOW"\nStudents with grade > than %.2f:\n"RESET,number);
+        printf(LBLUE"\nStudents with grade > than %.2f:\n"RESET,number);
         printf("\n+------------------------------+\n");
         printf("| ");
-        printf(BOLD BLUE"ID\t Name\t\t Grade"RESET);
+        printf(BLUE"ID\t Name\t\t Grade"RESET);
         printf(" |\n");
         printf("+------------------------------+\n");
 
@@ -115,10 +115,10 @@ void select_operations(Student_list **nodes,char *operation,float number) {
             return;
         }
 
-        printf(BOLD YELLOW"\nStudents with grade < than %.2f:\n"RESET,number);
+        printf(LBLUE"\nStudents with grade < than %.2f:\n"RESET,number);
         printf("\n+------------------------------+\n");
         printf("| ");
-        printf(BOLD BLUE"ID\t Name\t\t Grade"RESET);
+        printf(BLUE"ID\t Name\t\t Grade"RESET);
         printf(" |\n");
         printf("+------------------------------+\n");
 
@@ -161,10 +161,10 @@ void select_operations(Student_list **nodes,char *operation,float number) {
             return;
         }
 
-        printf(BOLD YELLOW"\nStudents with grade = to %.2f:\n"RESET,number);
+        printf(LBLUE"\nStudents with grade = to %.2f:\n"RESET,number);
         printf("\n+------------------------------+\n");
         printf("| ");
-        printf(BOLD BLUE"ID\t Name\t\t Grade"RESET);
+        printf(BLUE"ID\t Name\t\t Grade"RESET);
         printf(" |\n");
         printf("+------------------------------+\n");
 
@@ -287,34 +287,34 @@ void delete_operations(Student_list **nodes,char *operation,float number) {
     }
 }
 void help_show_commands() {
-    printf(BOLD YELLOW"\nCommands:\n"RESET);
-    printf(BOLD YELLOW"  insert <id> <name> <grade>   | Adds students to the database\n"RESET);
-    printf(BOLD YELLOW"  update <id> <new_grade>      | Updates students grade by the ID\n"RESET);
-    printf(BOLD YELLOW"  rename <id> <new_name>       | Updates the name of the student\n"RESET);
-    printf(BOLD YELLOW"  DELETE HELP                  | Shows you every usage of <delete> command\n"RESET);
-    printf(BOLD YELLOW"  SELECT HELP                  | Shows you every usage of <select> command\n"RESET);
-    printf(BOLD YELLOW"  version                      | Shows the current version of the program\n"RESET);
-    printf(BOLD YELLOW"  average                      | Prints students average grade\n"RESET);
-    printf(BOLD YELLOW"  count                        | Prints student count\n"RESET);
-    printf(BOLD YELLOW"  cls                          | Clears the terminal\n"RESET);
-    printf(BOLD YELLOW"  min                          | Finds the student with the minimum grade\n"RESET);
-    printf(BOLD YELLOW"  max                          | Finds the student with the maximum grade\n"RESET);
-    printf(BOLD YELLOW"  help                         | Shows this panel\n"RESET);
-    printf(BOLD YELLOW"  exit                         | Exits the program\n\n"RESET);
+    printf(LBLUE"\nCommands:\n"RESET);
+    printf(LBLUE"  insert <id> <name> <grade>   | Adds students to the database\n"RESET);
+    printf(LBLUE"  update <id> <new_grade>      | Updates students grade by the ID\n"RESET);
+    printf(LBLUE"  rename <id> <new_name>       | Updates the name of the student\n"RESET);
+    printf(LBLUE"  DELETE HELP                  | Shows you every usage of <delete> command\n"RESET);
+    printf(LBLUE"  SELECT HELP                  | Shows you every usage of <select> command\n"RESET);
+    printf(LBLUE"  version                      | Shows the current version of the program\n"RESET);
+    printf(LBLUE"  average                      | Prints students average grade\n"RESET);
+    printf(LBLUE"  count                        | Prints student count\n"RESET);
+    printf(LBLUE"  cls                          | Clears the terminal\n"RESET);
+    printf(LBLUE"  min                          | Finds the student with the minimum grade\n"RESET);
+    printf(LBLUE"  max                          | Finds the student with the maximum grade\n"RESET);
+    printf(LBLUE"  help                         | Shows this panel\n"RESET);
+    printf(LBLUE"  exit                         | Exits the program\n\n"RESET);
 }
 
 void help_show_select_command() {
-    printf(BOLD YELLOW"\n3 usages:\n"RESET);
-    printf(BOLD YELLOW"  select                | Prints all the students in the list\n"RESET);
-    printf(BOLD YELLOW"  select <name>         | Prints the student with this name\n"RESET);
-    printf(BOLD YELLOW"  select <op> <grade>   | Prints students with grade [<|>|=] than <grade>\n"RESET);
-    printf(BOLD YELLOW"\n\nAvailable OP: '>', '<', '='\n\n"RESET);
+    printf(LBLUE"\n3 usages:\n"RESET);
+    printf(LBLUE"  select                | Prints all the students in the list\n"RESET);
+    printf(LBLUE"  select <name>         | Prints the student with this name\n"RESET);
+    printf(LBLUE"  select <op> <grade>   | Prints students with grade [<|>|=] than <grade>\n"RESET);
+    printf(LBLUE"\n\nAvailable OP: '>', '<', '='\n\n"RESET);
 }
 
 void help_show_delete_command() {
-    printf(BOLD YELLOW"\n3 usages:\n"RESET);
-    printf(BOLD YELLOW"  delete                | Deletes all the students in the list\n"RESET);
-    printf(BOLD YELLOW"  delete <id>           | Deletes the student with this ID\n"RESET);
-    printf(BOLD YELLOW"  delete <op> <grade>   | Deletes students with grade [<|>|=] than <grade>\n"RESET);
-    printf(BOLD YELLOW"\n\nAvailable OP: '>', '<', '='\n\n"RESET);
+    printf(LBLUE"\n3 usages:\n"RESET);
+    printf(LBLUE"  delete                | Deletes all the students in the list\n"RESET);
+    printf(LBLUE"  delete <id>           | Deletes the student with this ID\n"RESET);
+    printf(LBLUE"  delete <op> <grade>   | Deletes students with grade [<|>|=] than <grade>\n"RESET);
+    printf(LBLUE"\n\nAvailable OP: '>', '<', '='\n\n"RESET);
 }
