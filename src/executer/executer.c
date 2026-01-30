@@ -64,7 +64,7 @@ void execute_commands(char *input, Student_list **nodes) {
             } else {
                 free_list_nodes(*nodes);
                 *nodes = NULL;
-                printf(GREEN"Students deleted succesfully.\n"RESET);
+                printf(GREEN"Students deleted successfully.\n"RESET);
                 save_students_to_file(*nodes);
                 return;
             }
@@ -82,7 +82,7 @@ void execute_commands(char *input, Student_list **nodes) {
             }
             
             delete_student_from_list(nodes,id);
-            printf(GREEN"Student deleted succesfully.\n"RESET);
+            printf(GREEN"Student deleted successfully.\n"RESET);
             return;
         } else if(count == 3) {
             char *endPtr;

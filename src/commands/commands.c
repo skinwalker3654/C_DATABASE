@@ -49,7 +49,7 @@ void add_student_to_list(Student_list **studentPtr,int id,char *name,float grade
 
     if(*studentPtr == NULL) {
         *studentPtr = new_student;
-        printf(GREEN"Student added succesfully.\n"RESET);
+        printf(GREEN"Student added successfully.\n"RESET);
         return;
     }
 
@@ -57,7 +57,7 @@ void add_student_to_list(Student_list **studentPtr,int id,char *name,float grade
     while(temp3->next != NULL) temp3 = temp3->next;
     temp3->next = new_student;
 
-    printf(GREEN"Student added succesfully.\n"RESET);
+    printf(GREEN"Student added successfully.\n"RESET);
 }
 
 void delete_student_from_list(Student_list **studentPtr,int id) {
@@ -128,7 +128,7 @@ void edit_student_grade(Student_list *studentPtr,int id,float newGrade) {
     while(studentPtr != NULL) {
         if(studentPtr->id == id) {
             studentPtr->grade = newGrade;
-            printf(GREEN"Students grade updated succesfully.\n"RESET);
+            printf(GREEN"Students grade updated successfully.\n"RESET);
             return;
         }
         studentPtr = studentPtr->next;
@@ -146,7 +146,7 @@ void edit_student_name(Student_list *studentPtr,int id,char *newName) {
     while(studentPtr != NULL) {
         if(studentPtr->id == id) {
             strcpy(studentPtr->name,newName);
-            printf(GREEN"Students name updated succesfully.\n"RESET);
+            printf(GREEN"Students name updated successfully.\n"RESET);
             return;
         }
         studentPtr = studentPtr->next;

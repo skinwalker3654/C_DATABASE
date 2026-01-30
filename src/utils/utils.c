@@ -220,7 +220,7 @@ void delete_operations(Student_list **nodes,char *operation,float number) {
             temp = temp->next;
         }
 
-        printf(GREEN"Students with grade > than %.2f have been deleted succesfully.\n"RESET,number);
+        printf(GREEN"Students with grade > than %.2f have been deleted successfully.\n"RESET,number);
     } else if(strcmp(operation,"<")==0) {
         Student_list *temp = *nodes;
         if(temp == NULL) {
@@ -250,7 +250,7 @@ void delete_operations(Student_list **nodes,char *operation,float number) {
             temp = temp->next;
         }
 
-        printf(GREEN"Students with grade < than %.2f have been deleted succesfully.\n"RESET,number);
+        printf(GREEN"Students with grade < than %.2f have been deleted successfully.\n"RESET,number);
     } else if(strcmp(operation,"=")==0) {
         Student_list *temp = *nodes;
         if(temp == NULL) {
@@ -280,7 +280,7 @@ void delete_operations(Student_list **nodes,char *operation,float number) {
             temp = temp->next;
         }
 
-        printf(GREEN"Students with grade = to %.2f have been deleted succesfully.\n"RESET,number);
+        printf(GREEN"Students with grade = to %.2f have been deleted successfully.\n"RESET,number);
     } else {
         printf(RED"\nError: Invalid operation '%s'.\n"RESET,operation);
         printf(RED"Type: 'DELETE HELP' for more details.\n\n"RESET);
